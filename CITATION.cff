@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "[Your Last Name]"
+    given-names: "[Your First Name]"
+    orcid: "https://orcid.org/XXXX-XXXX-XXXX-XXXX"
+title: "LLMs for LLMs: Legal Large Language Models Benchmark"
+version: 1.0.0
+date-released: 2025-11-08
+url: "https://github.com/YOUR_USERNAME/legal-llm-benchmark"
+repository-code: "https://github.com/YOUR_USERNAME/legal-llm-benchmark"
+keywords:
+  - large language models
+  - legal AI
+  - benchmark
+  - natural language processing
+  - safety evaluation
+  - over-refusal
+license: MIT
+abstract: "A comprehensive benchmark evaluating 10 state-of-the-art Large Language Models on 163 diverse legal tasks, providing empirical evidence for model selection in legal practice."
