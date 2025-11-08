@@ -1,0 +1,101 @@
+{
+  "practice_area_categories": {
+    "Corporate & Business Law": [
+      "contract_drafting",
+      "contract_review",
+      "business_formation",
+      "mergers_acquisitions",
+      "securities_law",
+      "corporate_governance",
+      "partnership_dispute",
+      "non_compete_agreement",
+      "franchise_law",
+      "banking_finance"
+    ],
+    "Litigation & Dispute Resolution": [
+      "litigation_strategy",
+      "case_analysis",
+      "discovery",
+      "settlement_negotiation",
+      "appeals",
+      "alternative_dispute_resolution",
+      "class_action",
+      "civil_litigation"
+    ],
+    "Intellectual Property": [
+      "intellectual_property",
+      "patent_law",
+      "trademark_law",
+      "copyright_law",
+      "trade_secrets",
+      "entertainment_law",
+      "sports_law"
+    ],
+    "Employment & Labor Law": [
+      "employment_law",
+      "labor_law",
+      "workplace_discrimination",
+      "wrongful_termination",
+      "wage_hour",
+      "workers_compensation"
+    ],
+    "Real Estate & Property": [
+      "real_estate",
+      "property_law",
+      "landlord_tenant",
+      "zoning_land_use",
+      "construction_law",
+      "environmental_law"
+    ],
+    "Family & Personal Law": [
+      "family_law",
+      "divorce",
+      "child_custody",
+      "adoption",
+      "domestic_violence",
+      "elder_law",
+      "probate_estate",
+      "estate_planning",
+      "guardianship"
+    ],
+    "Criminal & Constitutional Law": [
+      "criminal_defense",
+      "white_collar_crime",
+      "constitutional_law",
+      "civil_rights",
+      "police_misconduct",
+      "prisoners_rights",
+      "death_penalty"
+    ],
+    "Immigration & Government": [
+      "immigration",
+      "asylum_refugee",
+      "deportation_defense",
+      "government_contracts",
+      "administrative_law",
+      "regulatory_compliance",
+      "tribal_law"
+    ],
+    "Consumer & Health Law": [
+      "consumer_protection",
+      "product_liability",
+      "medical_malpractice",
+      "health_law",
+      "insurance_law",
+      "bankruptcy",
+      "debt_collection"
+    ],
+    "Specialized Practice Areas": [
+      "tax_law",
+      "data_privacy",
+      "cybersecurity_law",
+      "education_law",
+      "nonprofit_law",
+      "maritime_law",
+      "aviation_law",
+      "cannabis_law",
+      "animal_law",
+      "antitrust_law"
+    ]
+  }
+}
