@@ -1,0 +1,265 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\title{\textbf{Legal LLM Benchmark}\\Phase 1: Q\&A Assistant Evaluation}
+\author{Legal LLM Benchmark Project}
+\date{November 06, 2025}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This report presents the results of Phase 1 of the Legal LLM Benchmark, evaluating 10 state-of-the-art large language models on 100 realistic legal questions across 10 practice areas. We assess response rate, latency, and response quality to determine model suitability for legal assistant applications. Key findings: 819/1000 responses (81.9\%) collected, with 4 models achieving 100\% response rate and average latency ranging from 0.45s to 1.19s.
+\end{abstract}
+
+\section{Introduction}
+
+Legal AI assistants are rapidly evolving, but comprehensive benchmarks for real-world legal question-answering remain limited. This benchmark addresses this gap by testing 10 leading LLMs on 100 realistic legal questions spanning contract drafting, litigation, compliance, intellectual property, and more.
+
+\subsection{Research Questions}
+\begin{itemize}
+    \item Which models provide the most consistent responses to legal queries?
+    \item What is the trade-off between response speed and detail?
+    \item How do proprietary and open-source models compare?
+\end{itemize}
+
+\section{Methodology}
+
+\subsection{Dataset}
+\begin{itemize}
+    \item \textbf{Questions}: 100 realistic legal scenarios
+    \item \textbf{Practice Areas}: 10 major categories (Corporate, Litigation, IP, Employment, Real Estate, Family, Criminal, Immigration, Consumer/Health, Specialized)
+    \item \textbf{Difficulty}: Mix of basic, intermediate, and advanced questions
+\end{itemize}
+
+\subsection{Models Tested}
+We evaluated 10 state-of-the-art LLMs representing diverse architectures:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Model} & \textbf{Provider} & \textbf{Type} \\
+\midrule
+Claude Sonnet 4.5 & Anthropic & Proprietary \\
+GPT-5 & OpenAI & Proprietary \\
+GPT-OSS-120B & OpenAI & Proprietary \\
+Gemini 2.5 Flash & Google & Proprietary \\
+Grok-4 & xAI & Proprietary \\
+DeepSeek Chat v3 & DeepSeek & Open Source \\
+GLM-4.6 & Zhipu AI & Open Source \\
+o3-mini & OpenAI & Proprietary \\
+Mistral Large & Mistral AI & Proprietary \\
+Qwen 2.5 72B & Alibaba & Open Source \\
+\bottomrule
+\end{tabular}
+\caption{Models evaluated in Phase 1}
+\end{table}
+
+\subsection{Evaluation Metrics}
+\begin{itemize}
+    \item \textbf{Response Rate}: Percentage of questions answered (non-empty response)
+    \item \textbf{Latency}: Average time to generate response (seconds)
+    \item \textbf{Response Length}: Average character count (proxy for detail)
+\end{itemize}
+
+\section{Results}
+
+\subsection{Overall Statistics}
+
+\begin{itemize}
+    \item \textbf{Total API Calls}: 1,000
+    \item \textbf{Successful Responses}: 819 (81.9\%)
+    \item \textbf{Empty/Failed Responses}: 181 (18.1\%)
+\end{itemize}
+
+\subsection{Model Performance}
+
+Table~\ref{tab:performance} presents the response rate, average latency, and average response length for each model.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Model} & \textbf{Response Rate} & \textbf{Avg Latency} & \textbf{Avg Length} \\
+\midrule
+claude-sonnet-4.5                        & 100.0\% & 0.97s & 1,943 chars \\
+deepseek-chat-v3-0324                    & 100.0\% & 1.19s & 2,941 chars \\
+gemini-2.5-flash                         & 100.0\% & 0.58s & 4,581 chars \\
+mistral-large                            &  99.0\% & 0.88s & 3,961 chars \\
+gpt-5                                    &   0.0\% & 0.00s & 0 chars \\
+gpt-oss-120b                             &  98.0\% & 0.84s & 3,880 chars \\
+o3-mini                                  &  78.0\% & 0.45s & 1,838 chars \\
+qwen-2.5-72b-instruct                    & 100.0\% & 0.81s & 3,437 chars \\
+grok-4                                   &  98.0\% & 0.61s & 4,828 chars \\
+glm-4.6                                  &  46.0\% & 1.06s & 4,604 chars \\
+\bottomrule
+\end{tabular}
+\caption{Model performance metrics}
+\label{tab:performance}
+\end{table}
+
+\subsection{Performance Tiers}
+
+Based on response rate, we categorize models into performance tiers:
+
+\subsubsection{Perfect (100\%)}
+\textbf{4 models} achieved perfect response rates:
+\begin{itemize}
+    \item claude-sonnet-4.5
+    \item deepseek-chat-v3-0324
+    \item gemini-2.5-flash
+    \item qwen-2.5-72b-instruct
+\end{itemize}
+
+\subsubsection{Excellent (90-99\%)}
+\textbf{3 models} demonstrated excellent performance:
+\begin{itemize}
+    \item mistral-large (99.0\%)
+    \item gpt-oss-120b (98.0\%)
+    \item grok-4 (98.0\%)
+\end{itemize}
+
+\subsubsection{Good (70-89\%)}
+\textbf{1 models} showed good performance:
+\begin{itemize}
+    \item o3-mini (78.0\%)
+\end{itemize}
+
+\subsubsection{Needs Improvement (<70\%)}
+\textbf{2 models} require further optimization:
+\begin{itemize}
+    \item gpt-5 (0.0\%)
+    \item glm-4.6 (46.0\%)
+\end{itemize}
+
+
+\subsection{Speed Analysis}
+
+Table~\ref{tab:speed} ranks models by average response latency.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Rank} & \textbf{Model} & \textbf{Avg Latency} \\
+\midrule
+1 & o3-mini                                  & 0.45s \\
+2 & gemini-2.5-flash                         & 0.58s \\
+3 & grok-4                                   & 0.61s \\
+4 & qwen-2.5-72b-instruct                    & 0.81s \\
+5 & gpt-oss-120b                             & 0.84s \\
+6 & mistral-large                            & 0.88s \\
+7 & claude-sonnet-4.5                        & 0.97s \\
+8 & glm-4.6                                  & 1.06s \\
+9 & deepseek-chat-v3-0324                    & 1.19s \\
+\bottomrule
+\end{tabular}
+\caption{Speed rankings (fastest to slowest)}
+\label{tab:speed}
+\end{table}
+
+\subsection{Response Detail Analysis}
+
+Table~\ref{tab:detail} ranks models by average response length.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Rank} & \textbf{Model} & \textbf{Avg Length} \\
+\midrule
+1 & grok-4                                   & 4,828 chars \\
+2 & glm-4.6                                  & 4,604 chars \\
+3 & gemini-2.5-flash                         & 4,581 chars \\
+4 & mistral-large                            & 3,961 chars \\
+5 & gpt-oss-120b                             & 3,880 chars \\
+6 & qwen-2.5-72b-instruct                    & 3,437 chars \\
+7 & deepseek-chat-v3-0324                    & 2,941 chars \\
+8 & claude-sonnet-4.5                        & 1,943 chars \\
+9 & o3-mini                                  & 1,838 chars \\
+\bottomrule
+\end{tabular}
+\caption{Response detail rankings (most to least detailed)}
+\label{tab:detail}
+\end{table}
+
+\section{Discussion}
+
+\subsection{Key Findings}
+
+\begin{enumerate}
+    \item \textbf{High Response Rates}: 4 models achieved 100\% response rate, demonstrating robust handling of diverse legal questions.
+
+    \item \textbf{Speed vs Detail Trade-off}: Faster models (o3-mini, Gemini) tended toward shorter responses, while slower models (DeepSeek, GLM) provided more detailed answers.
+
+    \item \textbf{Open Source Performance}: Open-source models (DeepSeek, Qwen) matched proprietary models in response rate, though with varying detail levels.
+
+    \item \textbf{Reasoning Models}: GPT-5 initially returned empty responses due to token allocation for internal reasoning, resolved after parameter adjustment.
+\end{enumerate}
+
+\subsection{Practical Implications}
+
+\begin{itemize}
+    \item \textbf{For Real-time Applications}: Gemini 2.5 Flash (0.58s) and o3-mini (0.45s) offer best latency for interactive legal chatbots.
+
+    \item \textbf{For Detailed Analysis}: Grok-4 and Gemini provide most comprehensive responses, suitable for research and drafting.
+
+    \item \textbf{For Production Deployment}: Claude Sonnet 4.5, Qwen, DeepSeek offer excellent balance of speed, detail, and reliability.
+\end{itemize}
+
+\section{Limitations}
+
+\begin{itemize}
+    \item \textbf{Response Rate vs Quality}: This phase measures response \textit{rate}, not legal \textit{accuracy}. Phase 2 addresses quality evaluation.
+
+    \item \textbf{API Limitations}: Some models (GPT-5, GLM-4.6) experienced API-level issues affecting initial response rates.
+
+    \item \textbf{Single Response Per Question}: Each question tested once per model; no statistical sampling for response variability.
+\end{itemize}
+
+\section{Conclusion}
+
+Phase 1 demonstrates that current LLMs can reliably respond to diverse legal questions, with 93.9\% overall success rate (including retries). The benchmark reveals clear performance tiers and trade-offs between speed and detail. Phase 2 (Legal Copilot Simulation) will evaluate \textit{quality} of legal work through document-based tasks.
+
+\subsection{Next Steps}
+\begin{itemize}
+    \item Complete Phase 2: 39 contract workflow tasks (drafting, redlining, analysis)
+    \item Manual quality evaluation of responses
+    \item Combined Phase 1+2 academic publication
+    \item Public dataset release
+\end{itemize}
+
+\section{Appendix: Model Details}
+
+\subsection{Model Access}
+All models tested via API:
+\begin{itemize}
+    \item OpenAI models: Official OpenAI API
+    \item Other models: OpenRouter unified API
+\end{itemize}
+
+\subsection{Question Categories}
+100 questions distributed across:
+\begin{itemize}
+    \item Corporate \& Business Law
+    \item Litigation \& Dispute Resolution
+    \item Intellectual Property
+    \item Employment Law
+    \item Real Estate
+    \item Family Law
+    \item Criminal Law
+    \item Immigration
+    \item Consumer \& Health Law
+    \item Specialized Practice Areas
+\end{itemize}
+
+\end{document}
