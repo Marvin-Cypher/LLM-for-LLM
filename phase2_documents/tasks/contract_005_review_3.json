@@ -1,0 +1,29 @@
+{
+  "task_id": "contract_005_review_3",
+  "contract_id": "contract_005",
+  "task_type": "review",
+  "title": "Identify Problematic Clauses",
+  "instruction": "Review this consulting agreement from the consultant's perspective and identify any problematic or unfair clauses. Provide a bulleted list with: (a) the problematic clause, (b) why it's concerning, (c) suggested revision.",
+  "evaluation_criteria": [
+    "Issue spotting",
+    "Risk assessment",
+    "Practical recommendations"
+  ],
+  "input_file": "contract_005_consulting_agreement_filled.txt",
+  "context": {
+    "parties": {
+      "party1": {
+        "name": "TechVenture Solutions Inc.",
+        "type": "Delaware corporation",
+        "address": "350 Fifth Avenue, Suite 1800, New York, NY 10118"
+      },
+      "party2": {
+        "name": "NexGen Analytics Inc.",
+        "type": "Delaware corporation",
+        "address": "201 Mission Street, Suite 2400, San Francisco, CA 94105"
+      }
+    },
+    "effective_date": "October 22, 2024",
+    "contract_type": "consulting_agreement"
+  }
+}

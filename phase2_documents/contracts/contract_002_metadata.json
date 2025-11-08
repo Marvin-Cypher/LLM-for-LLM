@@ -1,0 +1,31 @@
+{
+  "contract_id": "contract_002",
+  "original_file": "SOLUTIONSVENDINGINTERNATIONAL,INC_03_31_2020-EX1A-1 UNDR AGMT-SERVICES AGREEMENT.txt",
+  "contract_type": "services_agreement",
+  "effective_date": "July 08, 2023",
+  "parties": {
+    "party1": {
+      "name": "Quantum Insights Corp.",
+      "type": "Delaware corporation",
+      "address": "500 Howard Street, Suite 300, San Francisco, CA 94105"
+    },
+    "party2": {
+      "name": "InnovateLabs LLC",
+      "type": "New York limited liability company",
+      "address": "55 Water Street, Floor 25, New York, NY 10041"
+    }
+  },
+  "signers": {
+    "party1": {
+      "name": "Jennifer Martinez",
+      "title": "CEO"
+    },
+    "party2": {
+      "name": "Lisa Anderson",
+      "title": "COO"
+    }
+  },
+  "financial_terms": {
+    "primary_fee": "$250,000"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "task_id": "contract_010_review_2",
+  "contract_id": "contract_010",
+  "task_type": "review",
+  "title": "Review Termination Provisions",
+  "instruction": "Review the termination provisions and identify any issues from the reseller's perspective. Specifically evaluate: notice periods, inventory buyback obligations, customer transition rights, and post-termination restrictions.",
+  "evaluation_criteria": [
+    "Thorough analysis",
+    "Practical implications",
+    "Business understanding"
+  ],
+  "input_file": "contract_010_reseller_agreement_filled.txt",
+  "context": {
+    "parties": {
+      "party1": {
+        "name": "TechVenture Solutions Inc.",
+        "type": "Delaware corporation",
+        "address": "350 Fifth Avenue, Suite 1800, New York, NY 10118"
+      },
+      "party2": {
+        "name": "CloudScale Technologies Corp.",
+        "type": "Delaware corporation",
+        "address": "100 Pine Street, Suite 1250, Seattle, WA 98101"
+      }
+    },
+    "effective_date": "August 07, 2023",
+    "contract_type": "reseller_agreement"
+  }
+}

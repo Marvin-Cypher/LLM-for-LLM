@@ -1,0 +1,31 @@
+{
+  "contract_id": "contract_017",
+  "original_file": "LEJUHOLDINGSLTD_03_12_2014-EX-10.34-INTERNET CHANNEL COOPERATION AGREEMENT.txt",
+  "contract_type": "other",
+  "effective_date": "April 08, 2024",
+  "parties": {
+    "party1": {
+      "name": "DataFlow Systems LLC",
+      "type": "California limited liability company",
+      "address": "1455 Market Street, Suite 1600, San Francisco, CA 94103"
+    },
+    "party2": {
+      "name": "CloudScale Technologies Corp.",
+      "type": "Delaware corporation",
+      "address": "100 Pine Street, Suite 1250, Seattle, WA 98101"
+    }
+  },
+  "signers": {
+    "party1": {
+      "name": "Michael Thompson",
+      "title": "CTO"
+    },
+    "party2": {
+      "name": "Christopher Lee",
+      "title": "VP of Sales"
+    }
+  },
+  "financial_terms": {
+    "primary_fee": "$150,000"
+  }
+}

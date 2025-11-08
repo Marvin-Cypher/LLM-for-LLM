@@ -1,0 +1,1151 @@
+{
+  "total_tasks": 39,
+  "task_count_by_type": {
+    "add_clause": 13,
+    "modify_payment": 3,
+    "redline": 5,
+    "review": 8,
+    "modify": 6,
+    "summarize": 4
+  },
+  "tasks": [
+    {
+      "task_id": "contract_001_add_clause_1",
+      "contract_id": "contract_001",
+      "task_type": "add_clause",
+      "title": "Add Liability Cap Clause",
+      "instruction": "Add a limitation of liability clause to Section 8 or create a new section if it doesn't exist. The liability cap should limit damages to the total fees paid in the 12 months preceding the claim. Exclude from the cap: (a) indemnification obligations, (b) breaches of confidentiality, and (c) willful misconduct.",
+      "evaluation_criteria": [
+        "Correct placement",
+        "Legal accuracy",
+        "Consistent tone",
+        "Proper formatting"
+      ],
+      "input_file": "contract_001_services_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "NexGen Analytics Inc.",
+            "type": "Delaware corporation",
+            "address": "201 Mission Street, Suite 2400, San Francisco, CA 94105"
+          },
+          "party2": {
+            "name": "Velocity Software Inc.",
+            "type": "Delaware corporation",
+            "address": "1301 Shoreway Road, Suite 350, Belmont, CA 94002"
+          }
+        },
+        "effective_date": "January 04, 2024",
+        "contract_type": "services_agreement"
+      }
+    },
+    {
+      "task_id": "contract_001_modify_payment_2",
+      "contract_id": "contract_001",
+      "task_type": "modify_payment",
+      "title": "Modify Payment Terms",
+      "instruction": "Modify the payment terms to change from monthly invoicing to quarterly invoicing. Ensure all payment deadlines and billing cycles are updated consistently throughout the agreement.",
+      "evaluation_criteria": [
+        "All instances updated",
+        "Maintains clarity",
+        "No contradictions"
+      ],
+      "input_file": "contract_001_services_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "NexGen Analytics Inc.",
+            "type": "Delaware corporation",
+            "address": "201 Mission Street, Suite 2400, San Francisco, CA 94105"
+          },
+          "party2": {
+            "name": "Velocity Software Inc.",
+            "type": "Delaware corporation",
+            "address": "1301 Shoreway Road, Suite 350, Belmont, CA 94002"
+          }
+        },
+        "effective_date": "January 04, 2024",
+        "contract_type": "services_agreement"
+      }
+    },
+    {
+      "task_id": "contract_001_redline_3",
+      "contract_id": "contract_001",
+      "task_type": "redline",
+      "title": "Redline for Customer Protection",
+      "instruction": "Review this services agreement and redline it to favor the Customer. Specifically: (a) add termination for convenience with 30 days notice, (b) strengthen data ownership provisions, (c) add SLA requirements with service credits. Provide track-changes format with brief explanations.",
+      "evaluation_criteria": [
+        "Strategic edits",
+        "Legal reasoning",
+        "Professional presentation"
+      ],
+      "input_file": "contract_001_services_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "NexGen Analytics Inc.",
+            "type": "Delaware corporation",
+            "address": "201 Mission Street, Suite 2400, San Francisco, CA 94105"
+          },
+          "party2": {
+            "name": "Velocity Software Inc.",
+            "type": "Delaware corporation",
+            "address": "1301 Shoreway Road, Suite 350, Belmont, CA 94002"
+          }
+        },
+        "effective_date": "January 04, 2024",
+        "contract_type": "services_agreement"
+      }
+    },
+    {
+      "task_id": "contract_002_add_clause_1",
+      "contract_id": "contract_002",
+      "task_type": "add_clause",
+      "title": "Add Liability Cap Clause",
+      "instruction": "Add a limitation of liability clause to Section 8 or create a new section if it doesn't exist. The liability cap should limit damages to the total fees paid in the 12 months preceding the claim. Exclude from the cap: (a) indemnification obligations, (b) breaches of confidentiality, and (c) willful misconduct.",
+      "evaluation_criteria": [
+        "Correct placement",
+        "Legal accuracy",
+        "Consistent tone",
+        "Proper formatting"
+      ],
+      "input_file": "contract_002_services_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "Quantum Insights Corp.",
+            "type": "Delaware corporation",
+            "address": "500 Howard Street, Suite 300, San Francisco, CA 94105"
+          },
+          "party2": {
+            "name": "InnovateLabs LLC",
+            "type": "New York limited liability company",
+            "address": "55 Water Street, Floor 25, New York, NY 10041"
+          }
+        },
+        "effective_date": "July 08, 2023",
+        "contract_type": "services_agreement"
+      }
+    },
+    {
+      "task_id": "contract_002_modify_payment_2",
+      "contract_id": "contract_002",
+      "task_type": "modify_payment",
+      "title": "Modify Payment Terms",
+      "instruction": "Modify the payment terms to change from monthly invoicing to quarterly invoicing. Ensure all payment deadlines and billing cycles are updated consistently throughout the agreement.",
+      "evaluation_criteria": [
+        "All instances updated",
+        "Maintains clarity",
+        "No contradictions"
+      ],
+      "input_file": "contract_002_services_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "Quantum Insights Corp.",
+            "type": "Delaware corporation",
+            "address": "500 Howard Street, Suite 300, San Francisco, CA 94105"
+          },
+          "party2": {
+            "name": "InnovateLabs LLC",
+            "type": "New York limited liability company",
+            "address": "55 Water Street, Floor 25, New York, NY 10041"
+          }
+        },
+        "effective_date": "July 08, 2023",
+        "contract_type": "services_agreement"
+      }
+    },
+    {
+      "task_id": "contract_002_redline_3",
+      "contract_id": "contract_002",
+      "task_type": "redline",
+      "title": "Redline for Customer Protection",
+      "instruction": "Review this services agreement and redline it to favor the Customer. Specifically: (a) add termination for convenience with 30 days notice, (b) strengthen data ownership provisions, (c) add SLA requirements with service credits. Provide track-changes format with brief explanations.",
+      "evaluation_criteria": [
+        "Strategic edits",
+        "Legal reasoning",
+        "Professional presentation"
+      ],
+      "input_file": "contract_002_services_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "Quantum Insights Corp.",
+            "type": "Delaware corporation",
+            "address": "500 Howard Street, Suite 300, San Francisco, CA 94105"
+          },
+          "party2": {
+            "name": "InnovateLabs LLC",
+            "type": "New York limited liability company",
+            "address": "55 Water Street, Floor 25, New York, NY 10041"
+          }
+        },
+        "effective_date": "July 08, 2023",
+        "contract_type": "services_agreement"
+      }
+    },
+    {
+      "task_id": "contract_003_add_clause_1",
+      "contract_id": "contract_003",
+      "task_type": "add_clause",
+      "title": "Add Liability Cap Clause",
+      "instruction": "Add a limitation of liability clause to Section 8 or create a new section if it doesn't exist. The liability cap should limit damages to the total fees paid in the 12 months preceding the claim. Exclude from the cap: (a) indemnification obligations, (b) breaches of confidentiality, and (c) willful misconduct.",
+      "evaluation_criteria": [
+        "Correct placement",
+        "Legal accuracy",
+        "Consistent tone",
+        "Proper formatting"
+      ],
+      "input_file": "contract_003_services_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "Quantum Insights Corp.",
+            "type": "Delaware corporation",
+            "address": "500 Howard Street, Suite 300, San Francisco, CA 94105"
+          },
+          "party2": {
+            "name": "DataFlow Systems LLC",
+            "type": "California limited liability company",
+            "address": "1455 Market Street, Suite 1600, San Francisco, CA 94103"
+          }
+        },
+        "effective_date": "January 30, 2023",
+        "contract_type": "services_agreement"
+      }
+    },
+    {
+      "task_id": "contract_003_modify_payment_2",
+      "contract_id": "contract_003",
+      "task_type": "modify_payment",
+      "title": "Modify Payment Terms",
+      "instruction": "Modify the payment terms to change from monthly invoicing to quarterly invoicing. Ensure all payment deadlines and billing cycles are updated consistently throughout the agreement.",
+      "evaluation_criteria": [
+        "All instances updated",
+        "Maintains clarity",
+        "No contradictions"
+      ],
+      "input_file": "contract_003_services_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "Quantum Insights Corp.",
+            "type": "Delaware corporation",
+            "address": "500 Howard Street, Suite 300, San Francisco, CA 94105"
+          },
+          "party2": {
+            "name": "DataFlow Systems LLC",
+            "type": "California limited liability company",
+            "address": "1455 Market Street, Suite 1600, San Francisco, CA 94103"
+          }
+        },
+        "effective_date": "January 30, 2023",
+        "contract_type": "services_agreement"
+      }
+    },
+    {
+      "task_id": "contract_003_redline_3",
+      "contract_id": "contract_003",
+      "task_type": "redline",
+      "title": "Redline for Customer Protection",
+      "instruction": "Review this services agreement and redline it to favor the Customer. Specifically: (a) add termination for convenience with 30 days notice, (b) strengthen data ownership provisions, (c) add SLA requirements with service credits. Provide track-changes format with brief explanations.",
+      "evaluation_criteria": [
+        "Strategic edits",
+        "Legal reasoning",
+        "Professional presentation"
+      ],
+      "input_file": "contract_003_services_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "Quantum Insights Corp.",
+            "type": "Delaware corporation",
+            "address": "500 Howard Street, Suite 300, San Francisco, CA 94105"
+          },
+          "party2": {
+            "name": "DataFlow Systems LLC",
+            "type": "California limited liability company",
+            "address": "1455 Market Street, Suite 1600, San Francisco, CA 94103"
+          }
+        },
+        "effective_date": "January 30, 2023",
+        "contract_type": "services_agreement"
+      }
+    },
+    {
+      "task_id": "contract_004_add_clause_1",
+      "contract_id": "contract_004",
+      "task_type": "add_clause",
+      "title": "Add Non-Compete Clause",
+      "instruction": "Draft and add a reasonable non-compete clause that restricts the consultant from working with direct competitors for 6 months post-termination within a 50-mile radius. Ensure it's enforceable under California law.",
+      "evaluation_criteria": [
+        "Legal enforceability",
+        "Geographic/time reasonableness",
+        "Clear language"
+      ],
+      "input_file": "contract_004_consulting_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "Strategic Partners LLC",
+            "type": "Delaware limited liability company",
+            "address": "71 Broadway, Suite 1400, New York, NY 10006"
+          },
+          "party2": {
+            "name": "Apex Consulting Group LLC",
+            "type": "Texas limited liability company",
+            "address": "5000 Plaza on the Lake, Suite 265, Austin, TX 78746"
+          }
+        },
+        "effective_date": "July 21, 2023",
+        "contract_type": "consulting_agreement"
+      }
+    },
+    {
+      "task_id": "contract_004_add_clause_2",
+      "contract_id": "contract_004",
+      "task_type": "add_clause",
+      "title": "Add IP Assignment Provision",
+      "instruction": "Add an intellectual property assignment clause that ensures all work product created by the consultant becomes the exclusive property of the company. Include provisions for pre-existing IP and moral rights waiver.",
+      "evaluation_criteria": [
+        "Comprehensive coverage",
+        "Legal precision",
+        "Industry standard language"
+      ],
+      "input_file": "contract_004_consulting_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "Strategic Partners LLC",
+            "type": "Delaware limited liability company",
+            "address": "71 Broadway, Suite 1400, New York, NY 10006"
+          },
+          "party2": {
+            "name": "Apex Consulting Group LLC",
+            "type": "Texas limited liability company",
+            "address": "5000 Plaza on the Lake, Suite 265, Austin, TX 78746"
+          }
+        },
+        "effective_date": "July 21, 2023",
+        "contract_type": "consulting_agreement"
+      }
+    },
+    {
+      "task_id": "contract_004_review_3",
+      "contract_id": "contract_004",
+      "task_type": "review",
+      "title": "Identify Problematic Clauses",
+      "instruction": "Review this consulting agreement from the consultant's perspective and identify any problematic or unfair clauses. Provide a bulleted list with: (a) the problematic clause, (b) why it's concerning, (c) suggested revision.",
+      "evaluation_criteria": [
+        "Issue spotting",
+        "Risk assessment",
+        "Practical recommendations"
+      ],
+      "input_file": "contract_004_consulting_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "Strategic Partners LLC",
+            "type": "Delaware limited liability company",
+            "address": "71 Broadway, Suite 1400, New York, NY 10006"
+          },
+          "party2": {
+            "name": "Apex Consulting Group LLC",
+            "type": "Texas limited liability company",
+            "address": "5000 Plaza on the Lake, Suite 265, Austin, TX 78746"
+          }
+        },
+        "effective_date": "July 21, 2023",
+        "contract_type": "consulting_agreement"
+      }
+    },
+    {
+      "task_id": "contract_005_add_clause_1",
+      "contract_id": "contract_005",
+      "task_type": "add_clause",
+      "title": "Add Non-Compete Clause",
+      "instruction": "Draft and add a reasonable non-compete clause that restricts the consultant from working with direct competitors for 6 months post-termination within a 50-mile radius. Ensure it's enforceable under California law.",
+      "evaluation_criteria": [
+        "Legal enforceability",
+        "Geographic/time reasonableness",
+        "Clear language"
+      ],
+      "input_file": "contract_005_consulting_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "TechVenture Solutions Inc.",
+            "type": "Delaware corporation",
+            "address": "350 Fifth Avenue, Suite 1800, New York, NY 10118"
+          },
+          "party2": {
+            "name": "NexGen Analytics Inc.",
+            "type": "Delaware corporation",
+            "address": "201 Mission Street, Suite 2400, San Francisco, CA 94105"
+          }
+        },
+        "effective_date": "October 22, 2024",
+        "contract_type": "consulting_agreement"
+      }
+    },
+    {
+      "task_id": "contract_005_add_clause_2",
+      "contract_id": "contract_005",
+      "task_type": "add_clause",
+      "title": "Add IP Assignment Provision",
+      "instruction": "Add an intellectual property assignment clause that ensures all work product created by the consultant becomes the exclusive property of the company. Include provisions for pre-existing IP and moral rights waiver.",
+      "evaluation_criteria": [
+        "Comprehensive coverage",
+        "Legal precision",
+        "Industry standard language"
+      ],
+      "input_file": "contract_005_consulting_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "TechVenture Solutions Inc.",
+            "type": "Delaware corporation",
+            "address": "350 Fifth Avenue, Suite 1800, New York, NY 10118"
+          },
+          "party2": {
+            "name": "NexGen Analytics Inc.",
+            "type": "Delaware corporation",
+            "address": "201 Mission Street, Suite 2400, San Francisco, CA 94105"
+          }
+        },
+        "effective_date": "October 22, 2024",
+        "contract_type": "consulting_agreement"
+      }
+    },
+    {
+      "task_id": "contract_005_review_3",
+      "contract_id": "contract_005",
+      "task_type": "review",
+      "title": "Identify Problematic Clauses",
+      "instruction": "Review this consulting agreement from the consultant's perspective and identify any problematic or unfair clauses. Provide a bulleted list with: (a) the problematic clause, (b) why it's concerning, (c) suggested revision.",
+      "evaluation_criteria": [
+        "Issue spotting",
+        "Risk assessment",
+        "Practical recommendations"
+      ],
+      "input_file": "contract_005_consulting_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "TechVenture Solutions Inc.",
+            "type": "Delaware corporation",
+            "address": "350 Fifth Avenue, Suite 1800, New York, NY 10118"
+          },
+          "party2": {
+            "name": "NexGen Analytics Inc.",
+            "type": "Delaware corporation",
+            "address": "201 Mission Street, Suite 2400, San Francisco, CA 94105"
+          }
+        },
+        "effective_date": "October 22, 2024",
+        "contract_type": "consulting_agreement"
+      }
+    },
+    {
+      "task_id": "contract_006_modify_1",
+      "contract_id": "contract_006",
+      "task_type": "modify",
+      "title": "Add Sublicensing Rights",
+      "instruction": "Modify the license grant section to allow the licensee to sublicense the licensed technology to its affiliates and subsidiaries, subject to written notice to the licensor and compliance with all agreement terms.",
+      "evaluation_criteria": [
+        "Clear modification",
+        "Maintains protections",
+        "Legally sound"
+      ],
+      "input_file": "contract_006_license_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "DataFlow Systems LLC",
+            "type": "California limited liability company",
+            "address": "1455 Market Street, Suite 1600, San Francisco, CA 94103"
+          },
+          "party2": {
+            "name": "Quantum Insights Corp.",
+            "type": "Delaware corporation",
+            "address": "500 Howard Street, Suite 300, San Francisco, CA 94105"
+          }
+        },
+        "effective_date": "August 01, 2024",
+        "contract_type": "license_agreement"
+      }
+    },
+    {
+      "task_id": "contract_006_add_clause_2",
+      "contract_id": "contract_006",
+      "task_type": "add_clause",
+      "title": "Add Audit Rights Provision",
+      "instruction": "Add an audit rights clause that allows the licensor to audit the licensee's use of the licensed technology once per year with 30 days notice. Include provisions for costs, confidentiality, and remedies for non-compliance.",
+      "evaluation_criteria": [
+        "Balanced provisions",
+        "Practical enforceability",
+        "Clear procedures"
+      ],
+      "input_file": "contract_006_license_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "DataFlow Systems LLC",
+            "type": "California limited liability company",
+            "address": "1455 Market Street, Suite 1600, San Francisco, CA 94103"
+          },
+          "party2": {
+            "name": "Quantum Insights Corp.",
+            "type": "Delaware corporation",
+            "address": "500 Howard Street, Suite 300, San Francisco, CA 94105"
+          }
+        },
+        "effective_date": "August 01, 2024",
+        "contract_type": "license_agreement"
+      }
+    },
+    {
+      "task_id": "contract_007_modify_1",
+      "contract_id": "contract_007",
+      "task_type": "modify",
+      "title": "Add Sublicensing Rights",
+      "instruction": "Modify the license grant section to allow the licensee to sublicense the licensed technology to its affiliates and subsidiaries, subject to written notice to the licensor and compliance with all agreement terms.",
+      "evaluation_criteria": [
+        "Clear modification",
+        "Maintains protections",
+        "Legally sound"
+      ],
+      "input_file": "contract_007_license_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "Digital Horizons Inc.",
+            "type": "California corporation",
+            "address": "10250 Constellation Blvd, Suite 2700, Los Angeles, CA 90067"
+          },
+          "party2": {
+            "name": "DataFlow Systems LLC",
+            "type": "California limited liability company",
+            "address": "1455 Market Street, Suite 1600, San Francisco, CA 94103"
+          }
+        },
+        "effective_date": "April 03, 2024",
+        "contract_type": "license_agreement"
+      }
+    },
+    {
+      "task_id": "contract_007_add_clause_2",
+      "contract_id": "contract_007",
+      "task_type": "add_clause",
+      "title": "Add Audit Rights Provision",
+      "instruction": "Add an audit rights clause that allows the licensor to audit the licensee's use of the licensed technology once per year with 30 days notice. Include provisions for costs, confidentiality, and remedies for non-compliance.",
+      "evaluation_criteria": [
+        "Balanced provisions",
+        "Practical enforceability",
+        "Clear procedures"
+      ],
+      "input_file": "contract_007_license_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "Digital Horizons Inc.",
+            "type": "California corporation",
+            "address": "10250 Constellation Blvd, Suite 2700, Los Angeles, CA 90067"
+          },
+          "party2": {
+            "name": "DataFlow Systems LLC",
+            "type": "California limited liability company",
+            "address": "1455 Market Street, Suite 1600, San Francisco, CA 94103"
+          }
+        },
+        "effective_date": "April 03, 2024",
+        "contract_type": "license_agreement"
+      }
+    },
+    {
+      "task_id": "contract_008_add_clause_1",
+      "contract_id": "contract_008",
+      "task_type": "add_clause",
+      "title": "Add Minimum Purchase Requirements",
+      "instruction": "Draft and add a minimum purchase obligation clause requiring the distributor to purchase at least $25,000 worth of products per quarter. Include consequences for failure to meet minimums and force majeure exceptions.",
+      "evaluation_criteria": [
+        "Clear metrics",
+        "Fair enforcement mechanisms",
+        "Exception handling"
+      ],
+      "input_file": "contract_008_distributor_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "NexGen Analytics Inc.",
+            "type": "Delaware corporation",
+            "address": "201 Mission Street, Suite 2400, San Francisco, CA 94105"
+          },
+          "party2": {
+            "name": "Digital Horizons Inc.",
+            "type": "California corporation",
+            "address": "10250 Constellation Blvd, Suite 2700, Los Angeles, CA 90067"
+          }
+        },
+        "effective_date": "July 23, 2024",
+        "contract_type": "distributor_agreement"
+      }
+    },
+    {
+      "task_id": "contract_008_modify_2",
+      "contract_id": "contract_008",
+      "task_type": "modify",
+      "title": "Modify Territory Restrictions",
+      "instruction": "Revise the territory clause to make the distribution rights exclusive for California, Oregon, and Washington, but non-exclusive for all other U.S. states. Add clarity on online sales and cross-border issues.",
+      "evaluation_criteria": [
+        "Geographic clarity",
+        "Addresses modern commerce",
+        "No ambiguity"
+      ],
+      "input_file": "contract_008_distributor_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "NexGen Analytics Inc.",
+            "type": "Delaware corporation",
+            "address": "201 Mission Street, Suite 2400, San Francisco, CA 94105"
+          },
+          "party2": {
+            "name": "Digital Horizons Inc.",
+            "type": "California corporation",
+            "address": "10250 Constellation Blvd, Suite 2700, Los Angeles, CA 90067"
+          }
+        },
+        "effective_date": "July 23, 2024",
+        "contract_type": "distributor_agreement"
+      }
+    },
+    {
+      "task_id": "contract_009_add_clause_1",
+      "contract_id": "contract_009",
+      "task_type": "add_clause",
+      "title": "Add Minimum Purchase Requirements",
+      "instruction": "Draft and add a minimum purchase obligation clause requiring the distributor to purchase at least $25,000 worth of products per quarter. Include consequences for failure to meet minimums and force majeure exceptions.",
+      "evaluation_criteria": [
+        "Clear metrics",
+        "Fair enforcement mechanisms",
+        "Exception handling"
+      ],
+      "input_file": "contract_009_distributor_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "NexGen Analytics Inc.",
+            "type": "Delaware corporation",
+            "address": "201 Mission Street, Suite 2400, San Francisco, CA 94105"
+          },
+          "party2": {
+            "name": "Quantum Insights Corp.",
+            "type": "Delaware corporation",
+            "address": "500 Howard Street, Suite 300, San Francisco, CA 94105"
+          }
+        },
+        "effective_date": "November 06, 2023",
+        "contract_type": "distributor_agreement"
+      }
+    },
+    {
+      "task_id": "contract_009_modify_2",
+      "contract_id": "contract_009",
+      "task_type": "modify",
+      "title": "Modify Territory Restrictions",
+      "instruction": "Revise the territory clause to make the distribution rights exclusive for California, Oregon, and Washington, but non-exclusive for all other U.S. states. Add clarity on online sales and cross-border issues.",
+      "evaluation_criteria": [
+        "Geographic clarity",
+        "Addresses modern commerce",
+        "No ambiguity"
+      ],
+      "input_file": "contract_009_distributor_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "NexGen Analytics Inc.",
+            "type": "Delaware corporation",
+            "address": "201 Mission Street, Suite 2400, San Francisco, CA 94105"
+          },
+          "party2": {
+            "name": "Quantum Insights Corp.",
+            "type": "Delaware corporation",
+            "address": "500 Howard Street, Suite 300, San Francisco, CA 94105"
+          }
+        },
+        "effective_date": "November 06, 2023",
+        "contract_type": "distributor_agreement"
+      }
+    },
+    {
+      "task_id": "contract_010_add_clause_1",
+      "contract_id": "contract_010",
+      "task_type": "add_clause",
+      "title": "Add Pricing and Discounts",
+      "instruction": "Add a pricing schedule section that specifies: (a) wholesale pricing at 40% discount from MSRP, (b) volume discounts of 5% for orders over 100 units, (c) annual price adjustment based on CPI with 90 days notice.",
+      "evaluation_criteria": [
+        "Clear pricing structure",
+        "Professional formatting",
+        "Mutual fairness"
+      ],
+      "input_file": "contract_010_reseller_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "TechVenture Solutions Inc.",
+            "type": "Delaware corporation",
+            "address": "350 Fifth Avenue, Suite 1800, New York, NY 10118"
+          },
+          "party2": {
+            "name": "CloudScale Technologies Corp.",
+            "type": "Delaware corporation",
+            "address": "100 Pine Street, Suite 1250, Seattle, WA 98101"
+          }
+        },
+        "effective_date": "August 07, 2023",
+        "contract_type": "reseller_agreement"
+      }
+    },
+    {
+      "task_id": "contract_010_review_2",
+      "contract_id": "contract_010",
+      "task_type": "review",
+      "title": "Review Termination Provisions",
+      "instruction": "Review the termination provisions and identify any issues from the reseller's perspective. Specifically evaluate: notice periods, inventory buyback obligations, customer transition rights, and post-termination restrictions.",
+      "evaluation_criteria": [
+        "Thorough analysis",
+        "Practical implications",
+        "Business understanding"
+      ],
+      "input_file": "contract_010_reseller_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "TechVenture Solutions Inc.",
+            "type": "Delaware corporation",
+            "address": "350 Fifth Avenue, Suite 1800, New York, NY 10118"
+          },
+          "party2": {
+            "name": "CloudScale Technologies Corp.",
+            "type": "Delaware corporation",
+            "address": "100 Pine Street, Suite 1250, Seattle, WA 98101"
+          }
+        },
+        "effective_date": "August 07, 2023",
+        "contract_type": "reseller_agreement"
+      }
+    },
+    {
+      "task_id": "contract_011_add_clause_1",
+      "contract_id": "contract_011",
+      "task_type": "add_clause",
+      "title": "Add Pricing and Discounts",
+      "instruction": "Add a pricing schedule section that specifies: (a) wholesale pricing at 40% discount from MSRP, (b) volume discounts of 5% for orders over 100 units, (c) annual price adjustment based on CPI with 90 days notice.",
+      "evaluation_criteria": [
+        "Clear pricing structure",
+        "Professional formatting",
+        "Mutual fairness"
+      ],
+      "input_file": "contract_011_reseller_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "Quantum Insights Corp.",
+            "type": "Delaware corporation",
+            "address": "500 Howard Street, Suite 300, San Francisco, CA 94105"
+          },
+          "party2": {
+            "name": "NexGen Analytics Inc.",
+            "type": "Delaware corporation",
+            "address": "201 Mission Street, Suite 2400, San Francisco, CA 94105"
+          }
+        },
+        "effective_date": "March 08, 2023",
+        "contract_type": "reseller_agreement"
+      }
+    },
+    {
+      "task_id": "contract_011_review_2",
+      "contract_id": "contract_011",
+      "task_type": "review",
+      "title": "Review Termination Provisions",
+      "instruction": "Review the termination provisions and identify any issues from the reseller's perspective. Specifically evaluate: notice periods, inventory buyback obligations, customer transition rights, and post-termination restrictions.",
+      "evaluation_criteria": [
+        "Thorough analysis",
+        "Practical implications",
+        "Business understanding"
+      ],
+      "input_file": "contract_011_reseller_agreement_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "Quantum Insights Corp.",
+            "type": "Delaware corporation",
+            "address": "500 Howard Street, Suite 300, San Francisco, CA 94105"
+          },
+          "party2": {
+            "name": "NexGen Analytics Inc.",
+            "type": "Delaware corporation",
+            "address": "201 Mission Street, Suite 2400, San Francisco, CA 94105"
+          }
+        },
+        "effective_date": "March 08, 2023",
+        "contract_type": "reseller_agreement"
+      }
+    },
+    {
+      "task_id": "contract_012_redline_1",
+      "contract_id": "contract_012",
+      "task_type": "redline",
+      "title": "Redline to Make Mutual",
+      "instruction": "If this is a one-way NDA, redline it to make it a mutual NDA where both parties can share confidential information with the same protections. Ensure all obligations are reciprocal.",
+      "evaluation_criteria": [
+        "Symmetrical obligations",
+        "Consistent terminology",
+        "Legal accuracy"
+      ],
+      "input_file": "contract_012_nda_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "Velocity Software Inc.",
+            "type": "Delaware corporation",
+            "address": "1301 Shoreway Road, Suite 350, Belmont, CA 94002"
+          },
+          "party2": {
+            "name": "TechVenture Solutions Inc.",
+            "type": "Delaware corporation",
+            "address": "350 Fifth Avenue, Suite 1800, New York, NY 10118"
+          }
+        },
+        "effective_date": "January 23, 2024",
+        "contract_type": "nda"
+      }
+    },
+    {
+      "task_id": "contract_012_modify_2",
+      "contract_id": "contract_012",
+      "task_type": "modify",
+      "title": "Add Residual Knowledge Exception",
+      "instruction": "Add a residual knowledge exception clause that allows the receiving party to use general ideas, concepts, and know-how retained in memory after disclosure, as long as they don't intentionally memorize proprietary information.",
+      "evaluation_criteria": [
+        "Industry standard language",
+        "Balanced approach",
+        "Clear boundaries"
+      ],
+      "input_file": "contract_012_nda_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "Velocity Software Inc.",
+            "type": "Delaware corporation",
+            "address": "1301 Shoreway Road, Suite 350, Belmont, CA 94002"
+          },
+          "party2": {
+            "name": "TechVenture Solutions Inc.",
+            "type": "Delaware corporation",
+            "address": "350 Fifth Avenue, Suite 1800, New York, NY 10118"
+          }
+        },
+        "effective_date": "January 23, 2024",
+        "contract_type": "nda"
+      }
+    },
+    {
+      "task_id": "contract_013_redline_1",
+      "contract_id": "contract_013",
+      "task_type": "redline",
+      "title": "Redline to Make Mutual",
+      "instruction": "If this is a one-way NDA, redline it to make it a mutual NDA where both parties can share confidential information with the same protections. Ensure all obligations are reciprocal.",
+      "evaluation_criteria": [
+        "Symmetrical obligations",
+        "Consistent terminology",
+        "Legal accuracy"
+      ],
+      "input_file": "contract_013_nda_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "NexGen Analytics Inc.",
+            "type": "Delaware corporation",
+            "address": "201 Mission Street, Suite 2400, San Francisco, CA 94105"
+          },
+          "party2": {
+            "name": "InnovateLabs LLC",
+            "type": "New York limited liability company",
+            "address": "55 Water Street, Floor 25, New York, NY 10041"
+          }
+        },
+        "effective_date": "April 22, 2023",
+        "contract_type": "nda"
+      }
+    },
+    {
+      "task_id": "contract_013_modify_2",
+      "contract_id": "contract_013",
+      "task_type": "modify",
+      "title": "Add Residual Knowledge Exception",
+      "instruction": "Add a residual knowledge exception clause that allows the receiving party to use general ideas, concepts, and know-how retained in memory after disclosure, as long as they don't intentionally memorize proprietary information.",
+      "evaluation_criteria": [
+        "Industry standard language",
+        "Balanced approach",
+        "Clear boundaries"
+      ],
+      "input_file": "contract_013_nda_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "NexGen Analytics Inc.",
+            "type": "Delaware corporation",
+            "address": "201 Mission Street, Suite 2400, San Francisco, CA 94105"
+          },
+          "party2": {
+            "name": "InnovateLabs LLC",
+            "type": "New York limited liability company",
+            "address": "55 Water Street, Floor 25, New York, NY 10041"
+          }
+        },
+        "effective_date": "April 22, 2023",
+        "contract_type": "nda"
+      }
+    },
+    {
+      "task_id": "contract_014_summarize_1",
+      "contract_id": "contract_014",
+      "task_type": "summarize",
+      "title": "Summarize Key Terms",
+      "instruction": "Provide a 1-page executive summary of this agreement highlighting: (a) parties and purpose, (b) financial terms, (c) term and termination, (d) key obligations, (e) risk allocation provisions.",
+      "evaluation_criteria": [
+        "Accuracy",
+        "Completeness",
+        "Clarity",
+        "Executive-appropriate"
+      ],
+      "input_file": "contract_014_other_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "Velocity Software Inc.",
+            "type": "Delaware corporation",
+            "address": "1301 Shoreway Road, Suite 350, Belmont, CA 94002"
+          },
+          "party2": {
+            "name": "CloudScale Technologies Corp.",
+            "type": "Delaware corporation",
+            "address": "100 Pine Street, Suite 1250, Seattle, WA 98101"
+          }
+        },
+        "effective_date": "April 30, 2023",
+        "contract_type": "other"
+      }
+    },
+    {
+      "task_id": "contract_014_review_2",
+      "contract_id": "contract_014",
+      "task_type": "review",
+      "title": "General Review and Recommendations",
+      "instruction": "Conduct a general review of this agreement and provide recommendations for improvement. Focus on: missing provisions, unclear language, one-sided terms, and industry best practices.",
+      "evaluation_criteria": [
+        "Comprehensive review",
+        "Practical insights",
+        "Professional presentation"
+      ],
+      "input_file": "contract_014_other_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "Velocity Software Inc.",
+            "type": "Delaware corporation",
+            "address": "1301 Shoreway Road, Suite 350, Belmont, CA 94002"
+          },
+          "party2": {
+            "name": "CloudScale Technologies Corp.",
+            "type": "Delaware corporation",
+            "address": "100 Pine Street, Suite 1250, Seattle, WA 98101"
+          }
+        },
+        "effective_date": "April 30, 2023",
+        "contract_type": "other"
+      }
+    },
+    {
+      "task_id": "contract_015_summarize_1",
+      "contract_id": "contract_015",
+      "task_type": "summarize",
+      "title": "Summarize Key Terms",
+      "instruction": "Provide a 1-page executive summary of this agreement highlighting: (a) parties and purpose, (b) financial terms, (c) term and termination, (d) key obligations, (e) risk allocation provisions.",
+      "evaluation_criteria": [
+        "Accuracy",
+        "Completeness",
+        "Clarity",
+        "Executive-appropriate"
+      ],
+      "input_file": "contract_015_other_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "Digital Horizons Inc.",
+            "type": "California corporation",
+            "address": "10250 Constellation Blvd, Suite 2700, Los Angeles, CA 90067"
+          },
+          "party2": {
+            "name": "Quantum Insights Corp.",
+            "type": "Delaware corporation",
+            "address": "500 Howard Street, Suite 300, San Francisco, CA 94105"
+          }
+        },
+        "effective_date": "July 20, 2023",
+        "contract_type": "other"
+      }
+    },
+    {
+      "task_id": "contract_015_review_2",
+      "contract_id": "contract_015",
+      "task_type": "review",
+      "title": "General Review and Recommendations",
+      "instruction": "Conduct a general review of this agreement and provide recommendations for improvement. Focus on: missing provisions, unclear language, one-sided terms, and industry best practices.",
+      "evaluation_criteria": [
+        "Comprehensive review",
+        "Practical insights",
+        "Professional presentation"
+      ],
+      "input_file": "contract_015_other_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "Digital Horizons Inc.",
+            "type": "California corporation",
+            "address": "10250 Constellation Blvd, Suite 2700, Los Angeles, CA 90067"
+          },
+          "party2": {
+            "name": "Quantum Insights Corp.",
+            "type": "Delaware corporation",
+            "address": "500 Howard Street, Suite 300, San Francisco, CA 94105"
+          }
+        },
+        "effective_date": "July 20, 2023",
+        "contract_type": "other"
+      }
+    },
+    {
+      "task_id": "contract_016_summarize_1",
+      "contract_id": "contract_016",
+      "task_type": "summarize",
+      "title": "Summarize Key Terms",
+      "instruction": "Provide a 1-page executive summary of this agreement highlighting: (a) parties and purpose, (b) financial terms, (c) term and termination, (d) key obligations, (e) risk allocation provisions.",
+      "evaluation_criteria": [
+        "Accuracy",
+        "Completeness",
+        "Clarity",
+        "Executive-appropriate"
+      ],
+      "input_file": "contract_016_other_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "Velocity Software Inc.",
+            "type": "Delaware corporation",
+            "address": "1301 Shoreway Road, Suite 350, Belmont, CA 94002"
+          },
+          "party2": {
+            "name": "Strategic Partners LLC",
+            "type": "Delaware limited liability company",
+            "address": "71 Broadway, Suite 1400, New York, NY 10006"
+          }
+        },
+        "effective_date": "August 23, 2024",
+        "contract_type": "other"
+      }
+    },
+    {
+      "task_id": "contract_016_review_2",
+      "contract_id": "contract_016",
+      "task_type": "review",
+      "title": "General Review and Recommendations",
+      "instruction": "Conduct a general review of this agreement and provide recommendations for improvement. Focus on: missing provisions, unclear language, one-sided terms, and industry best practices.",
+      "evaluation_criteria": [
+        "Comprehensive review",
+        "Practical insights",
+        "Professional presentation"
+      ],
+      "input_file": "contract_016_other_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "Velocity Software Inc.",
+            "type": "Delaware corporation",
+            "address": "1301 Shoreway Road, Suite 350, Belmont, CA 94002"
+          },
+          "party2": {
+            "name": "Strategic Partners LLC",
+            "type": "Delaware limited liability company",
+            "address": "71 Broadway, Suite 1400, New York, NY 10006"
+          }
+        },
+        "effective_date": "August 23, 2024",
+        "contract_type": "other"
+      }
+    },
+    {
+      "task_id": "contract_017_summarize_1",
+      "contract_id": "contract_017",
+      "task_type": "summarize",
+      "title": "Summarize Key Terms",
+      "instruction": "Provide a 1-page executive summary of this agreement highlighting: (a) parties and purpose, (b) financial terms, (c) term and termination, (d) key obligations, (e) risk allocation provisions.",
+      "evaluation_criteria": [
+        "Accuracy",
+        "Completeness",
+        "Clarity",
+        "Executive-appropriate"
+      ],
+      "input_file": "contract_017_other_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "DataFlow Systems LLC",
+            "type": "California limited liability company",
+            "address": "1455 Market Street, Suite 1600, San Francisco, CA 94103"
+          },
+          "party2": {
+            "name": "CloudScale Technologies Corp.",
+            "type": "Delaware corporation",
+            "address": "100 Pine Street, Suite 1250, Seattle, WA 98101"
+          }
+        },
+        "effective_date": "April 08, 2024",
+        "contract_type": "other"
+      }
+    },
+    {
+      "task_id": "contract_017_review_2",
+      "contract_id": "contract_017",
+      "task_type": "review",
+      "title": "General Review and Recommendations",
+      "instruction": "Conduct a general review of this agreement and provide recommendations for improvement. Focus on: missing provisions, unclear language, one-sided terms, and industry best practices.",
+      "evaluation_criteria": [
+        "Comprehensive review",
+        "Practical insights",
+        "Professional presentation"
+      ],
+      "input_file": "contract_017_other_filled.txt",
+      "context": {
+        "parties": {
+          "party1": {
+            "name": "DataFlow Systems LLC",
+            "type": "California limited liability company",
+            "address": "1455 Market Street, Suite 1600, San Francisco, CA 94103"
+          },
+          "party2": {
+            "name": "CloudScale Technologies Corp.",
+            "type": "Delaware corporation",
+            "address": "100 Pine Street, Suite 1250, Seattle, WA 98101"
+          }
+        },
+        "effective_date": "April 08, 2024",
+        "contract_type": "other"
+      }
+    }
+  ]
+}
