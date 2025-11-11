@@ -76,8 +76,8 @@ batch_evaluation_jobs/**/batch_*.jsonl
 # Large files
 *.pdf
 !reports/paper/overleaf/*.pdf
+!paper/LLMs_for_LLMs__Evaluating_Large_Language_Models_for_Legal_Practice_Through_Multi_Dimensional_Benchmarking.pdf
 !figures/*.png
 
-# Large files distributed via GitHub Releases
-paper/*.pdf
+# Overleaf packages distributed via GitHub Releases
 reports/paper/overleaf/*.zip

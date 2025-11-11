@@ -6,7 +6,7 @@
 
 > **A comprehensive benchmark evaluating 10 state-of-the-art Large Language Models on 163 diverse legal tasks, providing empirical evidence for model selection in legal practice.**
 
-**📄 [Read the Full Paper (GitHub Releases)](https://github.com/Marvin-Cypher/LLM-for-LLM/releases)** | **📊 [View Analysis Reports](reports/)** | **💬 [Blog Post](docs/BLOG_POST_LEMMA_STYLE.md)**
+**📄 [Read the Full Paper](paper/LLMs_for_LLMs__Evaluating_Large_Language_Models_for_Legal_Practice_Through_Multi_Dimensional_Benchmarking.pdf)** | **📊 [View Analysis Reports](reports/)** | **💬 [Blog Post](docs/BLOG_POST_LEMMA_STYLE.md)**
 
 ---
 
