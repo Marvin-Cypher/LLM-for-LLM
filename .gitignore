@@ -76,3 +76,8 @@ batch_evaluation_jobs/**/batch_*.jsonl
 # Large files
 *.pdf
 !reports/paper/overleaf/*.pdf
+!figures/*.png
+
+# Large files distributed via GitHub Releases
+paper/*.pdf
+reports/paper/overleaf/*.zip

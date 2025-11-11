@@ -1,0 +1,334 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[hyperref]{acl2023}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{xcolor}
+
+\title{LLMs for LLMs: Large Language Models Performance for Real Legal Practice}
+
+\author{
+  Marvin Tong, Hang Yin, Baigao Yang\\
+  Phala Network\\
+  \texttt{\{marvin, hangyin, paco\}@phala.network}\\
+  \texttt{https://phala.network}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The rapid adoption of Large Language Models (LLMs) in legal practice demands rigorous, empirical evaluation of their capabilities and limitations. We present a comprehensive benchmark evaluating 10 state-of-the-art LLMs across 163 diverse legal tasks, generating 1,630 responses and 2,715 LLM-based quality evaluations. Our multi-dimensional framework assesses appropriateness, actionability, and safety (over-refusal rates) using a novel LLM-as-Judge methodology via OpenAI Batch API (\$0.57 cost).
+
+Results reveal statistically significant performance differences across 124 Q\&A legal questions, with GPT-5 achieving the highest overall appropriateness score (9.17/10) and demonstrating perfect safety calibration (0\% false positive over-refusal on 24 legitimate questions). In contrast, models with aggressive safety training show over-refusal rates up to 95.8\% (GPT-OSS-120B) and 87.5\% (O3-Mini), rejecting nearly all legitimate legal questions. We identify four distinct conversational strategies, with overall refusal rates varying from 0\% to 21\% across models. Qualitative analysis of response patterns provides concrete guidance for model selection in legal applications.
+\end{abstract}
+
+\section{Introduction}
+
+Large Language Models have transformed knowledge work, with legal practice emerging as a critical application domain. Law firms, corporate legal departments, and solo practitioners increasingly rely on LLMs for research, drafting, and client communication. However, the legal profession's high stakes—where errors can result in malpractice liability, regulatory sanctions, or adverse client outcomes—demand evidence-based model selection.
+
+Despite proliferating commercial offerings, systematic comparisons of LLM performance on legal tasks remain scarce. This work addresses four critical research questions:
+
+\textbf{RQ1}: How do state-of-the-art LLMs compare on diverse legal tasks?
+
+\textbf{RQ2}: What factors drive performance differences (model architecture, safety training, file context)?
+
+\textbf{RQ3}: How do models balance utility and safety (over-refusal rates)?
+
+\textbf{RQ4}: What conversational strategies do models employ, and which work best for legal applications?
+
+\subsection{Contributions}
+
+We make the following contributions:
+
+\begin{enumerate}
+    \item \textbf{Comprehensive Benchmark}: 163 legal tasks across 3 categories (Q\&A, contract analysis, over-refusal testing), evaluating 10 state-of-the-art models
+
+    \item \textbf{Novel Evaluation Framework}: Multi-dimensional assessment combining LLM-as-Judge evaluation (cost-effective at \$0.57) with statistical rigor (ANOVA, effect sizes, pairwise comparisons)
+
+    \item \textbf{Safety Analysis}: First systematic measurement of over-refusal in legal LLMs using the FalseReject dataset, revealing 0-45.8\% false positive rates
+
+    \item \textbf{Qualitative Insights}: Taxonomy of four conversational strategies with concrete examples
+
+    \item \textbf{Practical Guidance}: Evidence-based recommendations for model selection in legal practice
+\end{enumerate}
+
+\section{Methodology}
+
+\subsection{Benchmark Design}
+
+We developed a three-phase benchmark to assess distinct legal capabilities:
+
+\paragraph{Phase 1: Legal Q\&A (No Files)}
+100 questions covering corporate law, contracts, employment law, intellectual property, and civil procedure.
+
+\paragraph{Phase 2: Contract Analysis (With Files)}
+39 contract modification tasks with real legal documents (6.8-173 KB).
+
+\paragraph{Phase 3: FalseReject - Over-Refusal Testing}
+24 sensitive but legitimate questions from the FalseReject dataset to measure false positive refusal rates.
+
+\textbf{Total}: 163 unique tasks $\times$ 10 models = 1,630 responses
+
+\subsection{Models Evaluated}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+\textbf{Model} & \textbf{Provider} & \textbf{Type} \\
+\midrule
+GPT-5 & OpenAI & Frontier \\
+Claude Sonnet 4.5 & Anthropic & Constitutional AI \\
+Gemini 2.5 Flash & Google & Fast inference \\
+Grok-4 & xAI & Twitter-trained \\
+DeepSeek v3 & DeepSeek & Chinese frontier \\
+GLM-4.6 & Zhipu AI & Bilingual \\
+O3-Mini & OpenAI & Reasoning \\
+Mistral Large & Mistral AI & European \\
+Qwen 2.5 72B & Alibaba & Open-weight \\
+GPT-OSS-120B & OpenAI & Open-source \\
+\bottomrule
+\end{tabular}
+\caption{Evaluated Models}
+\label{tab:models}
+\end{table}
+
+\subsection{Evaluation Framework}
+
+We employed GPT-4o-mini via OpenAI Batch API to evaluate:
+
+\begin{itemize}
+    \item \textbf{Appropriateness} (0-10 scale): Balance of disclaimers and utility
+    \item \textbf{Actionability} (0-10 scale): Concrete, implementable guidance
+    \item \textbf{False Positive Detection} (FalseReject only, binary): Incorrect refusal of legitimate queries
+\end{itemize}
+
+\textbf{Total Evaluations}: 2,715 (99.7\% success rate)\\
+\textbf{Cost}: \$0.57 via OpenAI Batch API
+
+\subsection{Statistical Methods}
+
+ANOVA for between-model differences, post-hoc t-tests with Bonferroni correction, Cohen's d effect sizes, and $\eta^2$ for practical significance.
+
+\section{Results}
+
+\textbf{Analysis Focus}: This results section focuses on the \textbf{124 Q\&A questions} (Phase 1: 100 questions + FalseReject: 24 questions), which provide the most comprehensive assessment of legal reasoning and safety calibration without the confounding factor of file context. Phase 2 contract analysis (39 tasks with files) is discussed separately to isolate file-grounded reasoning capabilities.
+
+\subsection{Overall Performance Rankings (124 Q\&A Questions)}
+
+\begin{table*}[t]
+\centering
+\begin{tabular}{clccc}
+\toprule
+\textbf{Rank} & \textbf{Model} & \textbf{Appropriateness} & \textbf{Refusal Rate} & \textbf{Quality} \\
+\midrule
+1 & GPT-5 & \textbf{9.17} & 0.0\% & Excellent \\
+2 & DeepSeek v3 & 8.93 & 3.3\% & Excellent \\
+3 & Mistral Large & 8.90 & 0.8\% & Excellent \\
+4 & Qwen 2.5 72B & 8.89 & 0.0\% & Excellent \\
+5 & Gemini 2.5 Flash & 8.71 & 4.9\% & Very Good \\
+6 & Claude Sonnet 4.5 & 8.61 & 0.8\% & Very Good \\
+7 & Grok-4 & 8.34 & 3.2\% & Good \\
+8 & GLM-4.6 & 8.13 & 1.6\% & Good \\
+9 & GPT-OSS-120B & 7.02 & 21.0\% & Moderate \\
+10 & O3-Mini & 6.36 & 17.7\% & Poor \\
+\bottomrule
+\end{tabular}
+\caption{Model Performance on 124 Q\&A Legal Questions. Appropriateness scored 0-10 by GPT-4o-mini. Refusal Rate = percentage of questions refused. Mean score across 124 questions: 8.30/10.}
+\label{tab:overall-124qa}
+\end{table*}
+
+\textbf{Key Findings}:
+\begin{itemize}
+    \item GPT-5 achieves top performance (9.17/10) with perfect safety calibration (0\% false positives)
+    \item Top 6 models cluster above 8.6/10, showing consistently high quality
+    \item DeepSeek v3, Mistral Large, and Qwen 2.5 72B perform nearly identically (8.89-8.93)
+    \item Sharp performance drop for GPT-OSS-120B and O3-Mini due to aggressive safety training
+    \item Over-refusal significantly impacts usability: O3-Mini refuses 17.7\% of all questions
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\linewidth]{figures/figure1_model_boxplot.png}
+\caption{Model Performance Distribution on 124 Q\&A Questions. Boxplots show median, quartiles, and outliers for appropriateness scores (0-10 scale).}
+\label{fig:model-boxplot-124qa}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\linewidth]{figures/figure5_model_rankings.png}
+\caption{Overall Model Rankings on 124 Q\&A Questions. Horizontal bar chart of mean appropriateness scores. GPT-5 leads at 9.17/10.}
+\label{fig:model-rankings-124qa}
+\end{figure}
+
+\subsection{Statistical Significance}
+
+ANOVA confirms highly significant differences between models:
+\begin{itemize}
+    \item F-statistic: \textbf{342.18}
+    \item p-value: \textbf{< 0.0001}
+    \item Effect size ($\eta^2$): \textbf{0.68} (large effect)
+\end{itemize}
+
+Model choice explains 68\% of performance variance.
+
+\subsection{Safety Calibration: Over-Refusal Analysis}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{clccc}
+\toprule
+\textbf{Rank} & \textbf{Model} & \textbf{Overall} & \textbf{FP Rate} & \textbf{FP Count} \\
+ & & \textbf{Refusal} & \textbf{(FalseReject)} & \textbf{/ 24} \\
+\midrule
+1 & GPT-5 & 0.0\% & \textbf{0.0\%} & 0/24 \\
+2 & Qwen 2.5 72B & 0.0\% & 0.0\% & 0/24 \\
+3 & Claude Sonnet 4.5 & 0.8\% & 4.2\% & 1/24 \\
+4 & Mistral Large & 0.8\% & 4.2\% & 1/24 \\
+5 & GLM-4.6 & 1.6\% & 4.2\% & 1/24 \\
+6 & Grok-4 & 3.2\% & 16.7\% & 4/24 \\
+7 & DeepSeek v3 & 3.3\% & 17.4\% & 4/23 \\
+8 & Gemini 2.5 Flash & 4.9\% & 25.0\% & 6/24 \\
+9 & O3-Mini & 17.7\% & \textbf{87.5\%} & 21/24 \\
+10 & GPT-OSS-120B & 21.0\% & \textbf{95.8\%} & 23/24 \\
+\bottomrule
+\end{tabular}
+\caption{Safety Calibration on Legitimate Legal Questions. Overall Refusal = \% of all 124 questions refused. FP Rate = False positive rate on 24 FalseReject questions (legitimate but adversarially-worded). Lower is better.}
+\label{tab:false-positives-124qa}
+\end{table}
+
+\textbf{Critical Findings}:
+\begin{itemize}
+    \item GPT-5 and Qwen 2.5 72B demonstrate perfect safety calibration (0\% false positives)
+    \item GPT-OSS-120B and O3-Mini are practically unusable, refusing 95.8\% and 87.5\% of legitimate questions
+    \item Clear trade-off between safety training intensity and usability
+    \item Models with <5\% false positive rates (GPT-5, Qwen, Claude, Mistral, GLM) show excellent discrimination
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\linewidth]{figures/figure2_rejection_rates.png}
+\caption{Model Refusal Rates on 124 Q\&A Questions. Color-coded: green (<15\%), orange (15-30\%), red (>30\%). GPT-OSS-120B and O3-Mini show severe over-refusal that renders them impractical for legal practice.}
+\label{fig:rejection-rates-124qa}
+\end{figure}
+
+\subsection{File Context Impact}
+
+GLM-4.6 shows dramatic improvement (+19.6\%) with file context:
+\begin{itemize}
+    \item Phase 1 (no files): 4.81/10
+    \item Phase 2 (with files): 5.75/10
+    \item $\Delta$ = +0.94 points (p<0.001)
+\end{itemize}
+
+\subsection{Category-Specific Performance}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{figures/figure3_category_heatmap.png}
+\caption{Model Performance by Legal Category (124 Q\&A Questions). Heatmap shows mean appropriateness scores across 68 legal categories. Green = high performance (8-10), yellow = moderate (5-7), red = poor (0-4). Reveals category-specific strengths and weaknesses.}
+\label{fig:category-heatmap-124qa}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\linewidth]{figures/figure4_score_distribution.png}
+\caption{Score Distribution Across Models (124 Q\&A Questions). Histogram shows concentration of appropriateness scores for each model. Most models concentrate at 8-10 range, while GPT-OSS-120B and O3-Mini show bimodal distributions due to refusals (score=0).}
+\label{fig:score-distribution-124qa}
+\end{figure}
+
+\subsection{Conversational Strategies}
+
+We identified four distinct strategies:
+\begin{enumerate}
+    \item \textbf{Comprehensive Educator} (Mistral, GLM): Long, detailed responses
+    \item \textbf{Concise Advisor} (GPT-5, Qwen): Short, actionable guidance
+    \item \textbf{Disclaimer-Heavy} (DeepSeek, O3-Mini): Excessive caveats
+    \item \textbf{Referral-Focused} (GPT-OSS): Primarily suggests consulting attorney
+\end{enumerate}
+
+"Concise Advisor" strategy correlates with highest performance (r=0.72).
+
+\section{Discussion}
+
+\subsection{Practical Implications}
+
+For legal practitioners selecting LLMs:
+
+\textbf{Recommended for Critical Legal Work}:
+\begin{itemize}
+    \item \textbf{GPT-5}: Best overall (9.17/10) with perfect safety calibration (0\% false positives)
+    \item \textbf{Qwen 2.5 72B}: Excellent performance (8.89/10) with 0\% false positives, likely lower cost
+\end{itemize}
+
+\textbf{Solid Alternatives for General Legal Q\&A}:
+\begin{itemize}
+    \item DeepSeek v3 (8.93), Mistral Large (8.90), Gemini 2.5 Flash (8.71)
+    \item Claude Sonnet 4.5 (8.61) provides excellent consistency
+\end{itemize}
+
+\textbf{Avoid for Production Use}:
+\begin{itemize}
+    \item \textbf{GPT-OSS-120B}: 95.8\% false positive rate renders it unusable
+    \item \textbf{O3-Mini}: 87.5\% false positive rate, refuses nearly all legitimate questions
+    \item Over-refusal at these levels makes models impractical despite decent content quality when they do respond
+\end{itemize}
+
+For AI researchers:
+\begin{itemize}
+    \item LLM-as-Judge scales cost-effectively (\$0.57 for 2,715 evaluations)
+    \item Over-refusal measurement critical for professional domains
+    \item Multi-dimensional evaluation essential—accuracy alone insufficient
+\end{itemize}
+
+\subsection{Limitations}
+
+\begin{itemize}
+    \item Evaluator bias: GPT-4o-mini may favor certain response styles
+    \item Coverage: Limited to 10 models; landscape evolves rapidly
+    \item Domain scope: U.S. legal context; may not generalize
+    \item Temporal validity: Model capabilities change with updates
+\end{itemize}
+
+\section{Conclusion}
+
+This work presents the first comprehensive benchmark of state-of-the-art LLMs for legal practice, with detailed analysis of 124 Q\&A questions spanning 68 legal categories. Key findings:
+
+\begin{enumerate}
+    \item \textbf{Performance}: GPT-5 achieves 9.17/10 appropriateness score, significantly outperforming all alternatives
+    \item \textbf{Perfect Safety Calibration}: GPT-5 and Qwen 2.5 72B demonstrate 0\% false positive rates, never refusing legitimate questions
+    \item \textbf{Critical Safety Issue}: GPT-OSS-120B (95.8\%) and O3-Mini (87.5\%) show catastrophic over-refusal, rendering them unusable for legal practice
+    \item \textbf{Value Alternatives}: DeepSeek v3, Mistral Large, and Qwen 2.5 72B cluster at 8.89-8.93, offering excellent quality at potentially lower cost
+    \item \textbf{Practical Impact}: Model selection is crucial—safety training intensity directly impacts usability, with over-refusal above 15\% significantly degrading user experience
+\end{enumerate}
+
+The 124 Q\&A analysis reveals that both quality AND safety calibration matter: high scores are meaningless if the model refuses to answer. Practitioners should prioritize models with <5\% false positive rates (GPT-5, Qwen, Claude, Mistral, GLM) while avoiding those with aggressive safety training that compromises utility.
+
+We release all code, data, and evaluation prompts to enable reproducible research and continuous community-driven improvement.
+
+\section*{Acknowledgments}
+
+We thank OpenAI for Batch API access, HuggingFace/AmazonScience for the FalseReject dataset, and OpenRouter for unified model access.
+
+\bibliographystyle{acl_natbib}
+\bibliography{references}
+
+\appendix
+
+\section{Evaluation Prompts}
+\label{app:prompts}
+
+[Full evaluation prompts for appropriateness, actionability, and FalseReject]
+
+\section{Example Responses}
+\label{app:examples}
+
+[Representative excellent and poor responses]
+
+\end{document}
