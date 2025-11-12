@@ -6,7 +6,7 @@
 
 > **A comprehensive benchmark evaluating 12 large language models on 163 legal tasks, revealing a critical safety paradox: the most safety-trained models refuse 92% of legitimate legal questions.**
 
-**📄 [Read the Full Paper](paper/main.pdf)** | **📊 [HuggingFace Dataset](https://huggingface.co/datasets/marvintong/legal-llm-benchmark)** | **💬 [Blog Post](docs/BLOG_POST.md)**
+**📄 [Read the Full Paper](paper/main.pdf)** | **📊 [HuggingFace Dataset](https://huggingface.co/datasets/marvintong/legal-llm-benchmark)** | **💬 [Blog Post]([docs/BLOG_POST.md](https://phala.com/posts/legal-benchmark))**
 
 ---
 
