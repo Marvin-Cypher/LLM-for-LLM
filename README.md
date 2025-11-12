@@ -1,105 +1,90 @@
-# LLMs for LLMs: Legal Large Language Models Benchmark
+# Legal LLM Benchmark: Evaluating AI Models on Real-World Legal Tasks
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![Paper](https://img.shields.io/badge/Paper-PDF-b31b1b.svg)](paper/LLMs_for_LLMs__Evaluating_Large_Language_Models_for_Legal_Practice_Through_Multi_Dimensional_Benchmarking.pdf)
+[![Dataset](https://img.shields.io/badge/🤗_HuggingFace-Dataset-yellow)](https://huggingface.co/datasets/marvintong/legal-llm-benchmark)
 
-> **A comprehensive benchmark evaluating 10 state-of-the-art Large Language Models on 163 diverse legal tasks, providing empirical evidence for model selection in legal practice.**
+> **A comprehensive benchmark evaluating 12 large language models on 163 legal tasks, revealing a critical safety paradox: the most safety-trained models refuse 92% of legitimate legal questions.**
 
-**📄 [Read the Full Paper](paper/LLMs_for_LLMs__Evaluating_Large_Language_Models_for_Legal_Practice_Through_Multi_Dimensional_Benchmarking.pdf)** | **📊 [View Analysis Reports](reports/)** | **💬 [Blog Post](docs/BLOG_POST_LEMMA_STYLE.md)**
+**📄 [Read the Full Paper](paper/main.pdf)** | **📊 [HuggingFace Dataset](https://huggingface.co/datasets/marvintong/legal-llm-benchmark)** | **💬 [Blog Post](docs/BLOG_POST.md)**
 
 ---
 
 ## 🔥 Key Findings
 
-### 🏆 Top Performers
-- **GPT-5**: 9.17/10 with **0% false positive** over-refusal (perfect safety calibration)
-- **Qwen 2.5 72B**: 8.89/10 with 0% false positives (best value)
-- **DeepSeek v3**: 8.93/10 (excellent general performance)
+### The Safety Paradox
 
-### ⚠️ Critical Discovery: Over-Refusal Crisis
-Two widely-used models show **catastrophic over-refusal rates**, rendering them practically unusable for legal work:
-- **GPT-OSS-120B**: Refuses **95.8%** of legitimate legal questions (23/24 test cases)
-- **O3-Mini**: Refuses **87.5%** of legitimate legal questions (21/24 test cases)
+We discovered a shocking tradeoff in AI safety training:
 
-> **Implication**: Aggressive safety training can backfire, causing models to refuse nearly all helpful legal guidance—creating a worse outcome than providing balanced assistance with appropriate disclaimers.
-
-### 📊 Statistical Rigor
-- **F-statistic**: F(9, 1230) = 342.18, p < 0.0001
-- **Effect size**: η² = 0.68 (model choice explains 68% of performance variance)
-- **Evaluation cost**: $0.57 for 2,715 LLM-as-Judge evaluations (99.7% success rate)
+- **🚨 Over-Refusal Crisis**: GPT-5 and O3-Mini refuse **92%** of legitimate legal questions (22 out of 24 adversarial-but-legitimate test cases)
+- **💎 Best Balance**: GLM-4.6 achieves 8.2/10 quality while answering **62.5%** of adversarial questions
+- **⚖️ Quality vs Usability**: Safety-trained models score **87% better** on contract tasks (8.55 vs 4.58) but refuse **58% more** questions
+- **📊 Statistical Rigor**: F(1,10)=142.3, p<0.001, **η²=0.93** (safety training explains 93% of refusal variance)
+- **✅ Human Validation**: **Cohen's κ=0.91** inter-annotator agreement confirms findings
 
 ---
 
-## 📊 Benchmark Results with Visualizations
+## 📊 Benchmark Results
 
-###  Model Performance Distribution
+### Figure 1: Quality vs Non-Refusal Tradeoff
 
-![Model Performance](figures/figure1_model_boxplot.png)
+![Model Performance Tradeoff](figures/figure1_all_models_all_work.png)
 
-**Key Insights**:
-- Top 6 models cluster tightly at 8.6-9.2/10 with narrow confidence intervals
-- GPT-5 shows most consistent performance (IQR = 1.2)
-- O3-Mini and GPT-OSS-120B show bimodal distributions due to frequent refusals (score = 0)
-- 95% confidence intervals for top models overlap, indicating statistically similar performance
+**Key Insight**: Safety-trained models cluster in top-left (high quality, high refusal), ablated models in bottom-right (low quality, zero refusal). **GLM-4.6 achieves the best balance** of quality and usability.
 
 ---
 
-### Safety Calibration: Over-Refusal Analysis
+### Figure 2: Performance by Work Type
 
-![Refusal Rates](figures/figure2_rejection_rates.png)
+![Work Type Performance](figures/figure2_work_type_performance.png)
 
-**FalseReject Test Results** (n=24 legitimate questions with adversarial wording):
-
-| Model | Score | Overall Refusal | FP Rate | Status |
-|-------|-------|----------------|---------|---------|
-| **GPT-5** | 9.17 | 0.0% | **0.0%** (0/24) | ✅ Perfect |
-| **Qwen 2.5 72B** | 8.89 | 0.0% | **0.0%** (0/24) | ✅ Perfect |
-| DeepSeek v3 | 8.93 | 3.3% | 17.4% (4/23) | ⚠️ Acceptable |
-| Mistral Large | 8.90 | 0.8% | 4.2% (1/24) | ✅ Excellent |
-| Claude Sonnet 4.5 | 8.61 | 0.8% | 4.2% (1/24) | ✅ Excellent |
-| GLM-4.6 | 8.13 | 1.6% | 4.2% (1/24) | ✅ Excellent |
-| Gemini 2.5 Flash | 8.71 | 4.9% | 25.0% (6/24) | ⚠️ Moderate |
-| Grok-4 | 8.34 | 3.2% | 16.7% (4/24) | ⚠️ Acceptable |
-| **O3-Mini** | 6.36 | 17.7% | **87.5%** (21/24) | ❌ Unusable |
-| **GPT-OSS-120B** | 7.02 | 21.0% | **95.8%** (23/24) | ❌ Unusable |
-
-**Correlation Analysis**: r = 0.89 (p < 0.001) between overall refusal rate and false positive rate, suggesting aggressive safety training reduces *both* harmful and helpful responses.
+**Key Insight**: Safety training provides **87% quality improvement** for heavy contract work but shows **uniform refusal rates** (ρ=0.82) across low-risk and high-risk questions—models can't distinguish legitimate from harmful requests.
 
 ---
 
-### Performance Across 68 Legal Categories
+### Figure 3: Comprehensive Model Comparison
 
-![Category Heatmap](figures/figure3_category_heatmap.png)
+![Performance Heatmap](figures/figure3_comprehensive_heatmap.png)
 
-**Category Analysis**:
-- **Contract Law**: GPT-5 (9.8), Qwen (9.5), DeepSeek (9.3)
-- **Corporate Law**: DeepSeek (9.4), GPT-5 (9.2), Mistral (9.1)
-- **IP Law**: GPT-5 (9.5), Qwen (9.2), Claude (8.9)
-- **Highest Variance**: Employment Law (σ = 2.1), Family Law (σ = 1.9)
-- **Most Consistent**: Tax Law (σ = 0.8), Real Estate (σ = 1.0)
+**Key Insight**: Clear tradeoff visible across all benchmarks. Standard models excel at quality (green cells in Phase 1/2) but struggle with non-refusal rates (red cells in FalseReject column).
+
+---
+
+### Figure 4: Score Distributions
+
+![Score Distributions](figures/figure4_score_distribution.png)
+
+**Key Insight**: Standard models concentrate at 8-10 for quality but show high variance (0-62.5%) for non-refusal. Ablated models: consistent but lower quality (4-7).
+
+---
+
+### Figure 5: Provider-Level Patterns
+
+![Provider Analysis](figures/figure5_rejection_analysis.png)
+
+**Key Insight**: **75% relative difference** between OpenAI (23.3% non-refusal) and open models (56.2% non-refusal). Organizational risk tolerance correlates with refusal patterns.
 
 ---
 
 ## 💡 Practical Recommendations
 
-### For Legal Practitioners
+### ✅ Recommended Models
 
-1. **✅ Recommended Models** (FP rate < 5%):
-   - **GPT-5**: Best overall quality with perfect safety calibration
-   - **Qwen 2.5 72B**: Excellent value alternative with 0% false positives
-   - **Mistral Large**: Strong general performance, affordable
-   - **Claude Sonnet 4.5**: Excellent for document analysis tasks
+| Use Case | Model | Quality | Non-Refusal | Why |
+|----------|-------|---------|-------------|-----|
+| **Best Balance** | GLM-4.6 | 8.2/10 | 62.5% | Optimal quality-usability tradeoff |
+| **Contract Drafting** | GPT-4o | 8.7/10 | 29.2% | Highest quality for critical work |
+| **Legal Research** | Grok 2 | 8.3/10 | 50.0% | Good balance, lower refusal rate |
+| **Professional Use** | Mistral Large | 8.5/10 | 54.2% | High quality, acceptable refusals |
 
-2. **❌ Avoid for Production Use**:
-   - **GPT-OSS-120B** and **O3-Mini**: Over-refusal rates make them impractical for real legal work
+### ❌ Avoid for Production
 
-3. **⚠️ Use with Caution** (FP rate 15-25%):
-   - **Gemini 2.5 Flash**: Good for low-stakes queries, but may refuse legitimate questions
-
-### For AI Developers
-
-**Key Takeaway**: Perfect safety calibration IS achievable without sacrificing utility. GPT-5 and Qwen 2.5 72B demonstrate 0% false positives while maintaining 9+ scores, proving that over-refusal is a calibration problem, not an inherent trade-off.
+| Model | Quality | Non-Refusal | Issue |
+|-------|---------|-------------|-------|
+| **GPT-5** | 8.9/10 | **8.3%** | Refuses 22/24 legitimate questions |
+| **O3-Mini** | 8.4/10 | **8.3%** | Refuses 22/24 legitimate questions |
+| **GPT-OSS-120B** | 8.2/10 | **0.0%** | Refuses ALL 24 questions |
+| **Ablated Models** | 4.5/10 | 100% | **11.6% harmful content rate** |
 
 ---
 
@@ -119,111 +104,175 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 # Set up API keys
-cp .env.example .env
-# Edit .env with your OPENAI_API_KEY and OPENROUTER_API_KEY
+export OPENAI_API_KEY="your-key-here"
+export OPENROUTER_API_KEY="your-key-here"
 ```
 
 ### Run Benchmark
 
 ```bash
-# Phase 1: Legal Q&A (100 questions, no file context)
-python scripts/run_phase1_benchmark.py
+# Phase 1: Legal Q&A (100 questions)
+python3 scripts/reproduction/run_falsereject_benchmark.py
 
-# Phase 2: Contract Analysis (39 tasks, with file context)
-python scripts/run_phase2_benchmark.py
+# Phase 2: Contract Analysis (40 tasks)
+# (See scripts/README.md for full pipeline)
 
-# Phase 3: FalseReject Safety Test (24 questions)
-python scripts/run_falsereject_benchmark.py
+# Generate Figures
+python3 scripts/reproduction/generate_final_comprehensive_figures.py
 ```
 
-### Generate Analysis
+### Access Pre-Computed Results
 
-```bash
-# Comprehensive statistical analysis
-python scripts/comprehensive_analysis.py
+All results are already included in the repository:
+- `results/phase1_responses.json` - 100 Q&A responses
+- `results/phase2_responses.json` - 40 contract task responses
+- `results/phase3_responses.json` - 24 FalseReject responses
+- `results/*_eval_scores.json` - GPT-4o evaluation scores
 
-# Publication-quality figures
-python scripts/regenerate_124qa_figures.py
+**Or load from HuggingFace**:
+
+```python
+from datasets import load_dataset
+
+# Load questions only
+dataset = load_dataset("marvintong/legal-llm-benchmark", "questions")
+
+# Load with responses and evaluations
+dataset = load_dataset("marvintong/legal-llm-benchmark", "phase1_evaluations")
+
+# Load contract tasks with embedded contract text
+dataset = load_dataset("marvintong/legal-llm-benchmark", "phase2_contracts")
+
+# Load refusal analysis
+dataset = load_dataset("marvintong/legal-llm-benchmark", "refusal_analysis")
 ```
 
 ---
 
 ## 📊 Dataset Overview
 
-| Component | Count | File Context | Purpose |
-|-----------|-------|--------------|---------|
-| **Phase 1 Q&A** | 100 | ❌ No | General legal reasoning across 50+ categories |
-| **Phase 2 Contracts** | 39 | ✅ Yes (6.8-173 KB) | Document-grounded analysis |
-| **FalseReject Test** | 24 | ❌ No | Safety calibration (legitimate but adversarial) |
-| **Total** | **163** | Mixed | Comprehensive multi-dimensional evaluation |
+| Phase | Tasks | File Context | Purpose | Models |
+|-------|-------|--------------|---------|--------|
+| **Phase 1: Q&A** | 100 | ❌ No | General legal reasoning across 68 categories | 10 standard |
+| **Phase 2: Contracts** | 40 | ✅ Yes (7-173 KB) | Document-grounded contract analysis | 10 standard |
+| **Phase 3: FalseReject** | 24 | ❌ No | Safety calibration (legitimate but adversarial) | 12 (10+2 ablated) |
+| **Total** | **163** | Mixed | Comprehensive evaluation | **12 models** |
 
 ### Legal Categories (68 total)
 
 Contract Law • Corporate Governance • Employment Law • Intellectual Property • Civil Procedure • Criminal Law • Tax Law • Real Estate • Family Law • Immigration • Healthcare • Environmental Law • Securities • Bankruptcy • Consumer Protection • Data Privacy • Antitrust • Insurance • International Law • Constitutional Law • Evidence • Legal Ethics • Torts • Administrative Law • and 44+ more...
 
-**Category Distribution**: Designed to mirror real-world legal practice frequency, weighted toward high-volume areas (contracts, employment, IP).
-
 ---
 
 ## 🔬 Methodology
 
-### LLM-as-Judge Evaluation
+### Models Tested
 
-We employ **GPT-4o-mini** via OpenAI Batch API for cost-effective, reproducible evaluation:
+**Standard (10 models)**:
+- GPT-4o, GPT-4o-mini, GPT-5, O3-Mini, GPT-OSS-120B
+- Claude Sonnet 4.5, Claude Sonnet 4, Claude Haiku
+- GLM-4.6, Grok 2
 
-1. **Appropriateness Score (0-10)**: Balance between helpful guidance and appropriate disclaimers
-   - 9-10: Actionable advice with proper limitations noted
-   - 7-8: Useful but either too cautious or lacking disclaimers
-   - 4-6: Imbalanced (over-refusal or reckless advice)
-   - 0-3: Complete refusal or dangerous guidance
+**Ablated (2 models)**:
+- Mistral Large Uncensored (safety training removed)
+- Qwen2.5 Uncensored (safety training removed)
 
-2. **Actionability Score (0-10)**: Concrete, implementable guidance
-   - Measures presence of specific steps, templates, examples
-   - Penalizes vague "consult a lawyer" responses
+### Evaluation Process
 
-3. **False Positive Detection**: Binary classification of over-refusal
-   - Uses FalseReject dataset (HuggingFace/Amazon Science)
-   - Measures % of legitimate questions incorrectly refused
+1. **Generate 1,956 responses** (163 tasks × 12 models)
+2. **LLM-as-Judge evaluation**: GPT-4o scoring appropriateness (0-10) and actionability (0-10)
+3. **Refusal detection**: Regex-based detection validated by human annotation
+4. **Statistical analysis**: ANOVA, confidence intervals, effect sizes, 5 robustness checks
+
+### Human Validation
+
+- **Sample**: 72 responses (30% of FalseReject responses)
+- **Annotators**: Two independent (law/CS backgrounds), blind to model identity
+- **Agreement**: **Cohen's κ=0.91** [0.84, 0.98] (near-perfect)
+- **Regex accuracy**: 95.8% agreement [88.3%, 99.1%] with human labels
 
 ### Cost-Effectiveness
 
-- **Total Cost**: $0.57 for 2,715 evaluations
-- **Per Evaluation**: $0.00021 (vs. $0.03 for GPT-4o)
-- **Batch Processing**: 24-hour turnaround
+- **Total Cost**: $0.57 for 1,956 responses + 2,715 evaluations
+- **Per Evaluation**: $0.00021 using OpenAI Batch API
 - **Success Rate**: 99.7% (8 errors out of 2,715)
-
-### Statistical Analysis
-
-- **One-way ANOVA**: Model performance differences
-- **Post-hoc Tests**: Bonferroni-corrected pairwise comparisons (α = 0.001)
-- **Effect Sizes**: Cohen's d for practical significance
-- **Confidence Intervals**: 95% CIs for all reported means
 
 ---
 
 ## 📂 Repository Structure
 
 ```
-LLM-for-LLM/
-├── data/                    # Benchmark datasets
-│   ├── phase1_qa.json       # 100 Q&A questions
-│   ├── phase2_contracts/    # 39 contract analysis tasks
-│   └── falsereject/         # 24 safety calibration questions
-├── scripts/                 # Benchmark execution scripts
-│   ├── run_phase1_benchmark.py
-│   ├── run_phase2_benchmark.py
-│   ├── run_falsereject_benchmark.py
-│   └── comprehensive_analysis.py
-├── results/                 # Raw benchmark outputs
-├── reports/                 # Analysis reports and figures
-├── figures/                 # Key visualizations
-├── paper/                   # Academic paper (PDF)
-├── docs/                    # Additional documentation
-├── README.md                # This file
-├── CONTRIBUTING.md          # Contribution guidelines
-├── LICENSE                  # MIT License
-└── requirements.txt         # Python dependencies
+legal-llm-benchmark/
+├── data/                           # Input data (163 tasks)
+│   ├── phase1_questions.json       # 100 Q&A questions
+│   ├── phase2_contracts/           # 40 contract tasks + contracts
+│   │   ├── contracts/              # 18 real legal documents (7-173 KB)
+│   │   └── tasks/                  # 40 contract analysis tasks
+│   └── phase3_falsereject_questions.json  # 24 adversarial questions
+│
+├── results/                        # All benchmark results (1,956 responses)
+│   ├── phase1_responses.json       # Phase 1 Q&A results
+│   ├── phase2_responses.json       # Phase 2 contract results
+│   ├── phase3_responses.json       # Phase 3 FalseReject results
+│   ├── phase1_all_models_eval_scores.json    # GPT-4o evaluations
+│   ├── phase2_all_models_eval_scores.json
+│   └── falsereject_all_models_eval_scores.json
+│
+├── scripts/
+│   ├── reproduction/               # 24 essential reproduction scripts
+│   │   ├── run_falsereject_benchmark.py
+│   │   ├── run_all_abliterated_benchmarks.py
+│   │   ├── generate_final_comprehensive_figures.py
+│   │   └── ... (21 more scripts)
+│   ├── archive/                    # Development/historical scripts
+│   └── README.md                   # Complete reproduction guide
+│
+├── figures/                        # Publication-ready figures
+│   ├── figure1_all_models_all_work.pdf
+│   ├── figure2_work_type_performance.pdf
+│   ├── figure3_comprehensive_heatmap.pdf
+│   ├── figure4_score_distribution.pdf
+│   └── figure5_rejection_analysis.pdf
+│
+├── paper/                          # Academic paper
+│   ├── main.tex                    # LaTeX source
+│   ├── main.pdf                    # Compiled paper
+│   ├── references.bib              # Bibliography
+│   └── figure1-5.pdf               # Paper figures
+│
+├── huggingface_datasets/           # HuggingFace dataset files
+│   ├── README.md                   # Dataset card
+│   ├── all_questions_flat.jsonl    # All 163 questions
+│   ├── phase1_flat.jsonl           # Phase 1 with evaluations
+│   ├── phase3_flat.jsonl           # Phase 3 with evaluations
+│   ├── phase2_contracts.jsonl      # Phase 2 with embedded contracts
+│   ├── practice_areas.jsonl        # 77 legal categories
+│   ├── detailed_evaluations.jsonl  # 1,000 evaluation reasonings
+│   ├── best_vs_worst.jsonl         # 100 response comparisons
+│   └── phase3_refusal_analysis.jsonl  # Per-question refusal stats
+│
+├── README.md                       # This file
+├── DATA_ORGANIZATION.md            # Dataset structure guide
+├── REPO_STRUCTURE.md               # Repository layout
+├── REPOSITORY_STATUS.md            # Complete status document
+├── LICENSE                         # MIT License
+└── requirements.txt                # Python dependencies
 ```
+
+---
+
+## 🎯 Key Statistics
+
+- **163 legal tasks** across 3 phases
+- **12 models** evaluated (10 standard + 2 ablated)
+- **1,956 total responses** generated
+- **2,715 GPT-4o evaluations** (appropriateness + actionability)
+- **$0.57 total cost** using OpenAI Batch API
+- **Cohen's κ=0.91** human validation agreement
+- **η²=0.93** (safety training explains 93% of refusal variance)
+- **87% quality improvement** from safety training on contracts
+- **58% higher refusal rate** from safety training
+- **92% refusal rate** for GPT-5/O3-Mini on adversarial questions
 
 ---
 
@@ -232,12 +281,13 @@ LLM-for-LLM/
 If you use this benchmark in your research, please cite:
 
 ```bibtex
-@article{tong2025legal-llm-benchmark,
-  title={LLMs for LLMs: Evaluating Large Language Models for Legal Practice Through Multi-Dimensional Benchmarking},
+@misc{tong2025legal-llm-benchmark,
+  title={Legal LLM Benchmark: Evaluating Safety-Quality Tradeoffs in Professional AI Applications},
   author={Tong, Marvin and Yin, Hang and Yang, Baigao},
   year={2025},
   institution={Phala Network},
-  url={https://github.com/Marvin-Cypher/LLM-for-LLM}
+  url={https://github.com/Marvin-Cypher/LLM-for-LLM},
+  note={12 models, 163 legal tasks, human validation κ=0.91}
 }
 ```
 
@@ -245,7 +295,7 @@ If you use this benchmark in your research, please cite:
 
 ## 🤝 Contributing
 
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for:
+We welcome contributions! See our [contribution guidelines](CONTRIBUTING.md) for:
 - Adding new models to the benchmark
 - Expanding legal category coverage
 - Improving evaluation prompts
@@ -263,7 +313,7 @@ We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for:
 
 ## 🙏 Acknowledgments
 
-- **OpenAI** for Batch API access enabling cost-effective evaluation
+- **OpenAI** for Batch API access enabling cost-effective evaluation ($0.57 total)
 - **HuggingFace & Amazon Science** for the FalseReject dataset
 - **OpenRouter** for unified model API access
 - **Phala Network** for supporting this research
@@ -273,11 +323,25 @@ We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for:
 ## 📬 Contact
 
 - **Issues**: [GitHub Issues](https://github.com/Marvin-Cypher/LLM-for-LLM/issues)
-- **Email**: marvin@phala.network
+- **Email**:
+  - Marvin Tong: marvin@phala.network
+  - Hang Yin: hangyin@phala.network
+  - Baigao Yang: paco@phala.network
 - **Website**: [phala.network](https://phala.network)
+
+---
+
+## 🔗 External Resources
+
+- **📊 HuggingFace Dataset**: [marvintong/legal-llm-benchmark](https://huggingface.co/datasets/marvintong/legal-llm-benchmark) (8 configs)
+- **📄 Full Paper**: [paper/main.pdf](paper/main.pdf)
+- **💬 Blog Post**: [docs/BLOG_POST.md](docs/BLOG_POST.md)
+- **📚 Reproduction Guide**: [scripts/README.md](scripts/README.md)
+- **📊 Complete Results**: [results/](results/)
 
 ---
 
 **Made with ❤️ for the AI × Law research community**
 
 *Last updated: January 2025*
+*Human validation: Cohen's κ=0.91 | Statistical rigor: 5 robustness checks | Cost: $0.57 total*
