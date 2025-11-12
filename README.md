@@ -323,11 +323,7 @@ We welcome contributions! See our [contribution guidelines](CONTRIBUTING.md) for
 ## 📬 Contact
 
 - **Issues**: [GitHub Issues](https://github.com/Marvin-Cypher/LLM-for-LLM/issues)
-- **Email**:
-  - Marvin Tong: marvin@phala.network
-  - Hang Yin: hangyin@phala.network
-  - Baigao Yang: paco@phala.network
-- **Website**: [phala.network](https://phala.network)
+- **Website**: [phala](https://phala.com)
 
 ---
 
