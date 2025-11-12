@@ -1,0 +1,31 @@
+{
+  "contract_id": "contract_004",
+  "original_file": "GLOBALTECHNOLOGIESLTD_06_08_2020-EX-10.16-CONSULTING AGREEMENT.txt",
+  "contract_type": "consulting_agreement",
+  "effective_date": "July 21, 2023",
+  "parties": {
+    "party1": {
+      "name": "Strategic Partners LLC",
+      "type": "Delaware limited liability company",
+      "address": "71 Broadway, Suite 1400, New York, NY 10006"
+    },
+    "party2": {
+      "name": "Apex Consulting Group LLC",
+      "type": "Texas limited liability company",
+      "address": "5000 Plaza on the Lake, Suite 265, Austin, TX 78746"
+    }
+  },
+  "signers": {
+    "party1": {
+      "name": "Sarah Chen",
+      "title": "CFO"
+    },
+    "party2": {
+      "name": "Michael Thompson",
+      "title": "CTO"
+    }
+  },
+  "financial_terms": {
+    "primary_fee": "$150,000"
+  }
+}

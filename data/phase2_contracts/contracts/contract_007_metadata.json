@@ -1,0 +1,31 @@
+{
+  "contract_id": "contract_007",
+  "original_file": "ArconicRolledProductsCorp_20191217_10-12B_EX-2.7_11923804_EX-2.7_Trademark License Agreement.txt",
+  "contract_type": "license_agreement",
+  "effective_date": "April 03, 2024",
+  "parties": {
+    "party1": {
+      "name": "Digital Horizons Inc.",
+      "type": "California corporation",
+      "address": "10250 Constellation Blvd, Suite 2700, Los Angeles, CA 90067"
+    },
+    "party2": {
+      "name": "DataFlow Systems LLC",
+      "type": "California limited liability company",
+      "address": "1455 Market Street, Suite 1600, San Francisco, CA 94103"
+    }
+  },
+  "signers": {
+    "party1": {
+      "name": "David Rodriguez",
+      "title": "President"
+    },
+    "party2": {
+      "name": "Christopher Lee",
+      "title": "VP of Sales"
+    }
+  },
+  "financial_terms": {
+    "primary_fee": "$75,000"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "task_id": "contract_015_review_2",
+  "contract_id": "contract_015",
+  "task_type": "review",
+  "title": "General Review and Recommendations",
+  "instruction": "Conduct a general review of this agreement and provide recommendations for improvement. Focus on: missing provisions, unclear language, one-sided terms, and industry best practices.",
+  "evaluation_criteria": [
+    "Comprehensive review",
+    "Practical insights",
+    "Professional presentation"
+  ],
+  "input_file": "contract_015_other_filled.txt",
+  "context": {
+    "parties": {
+      "party1": {
+        "name": "Digital Horizons Inc.",
+        "type": "California corporation",
+        "address": "10250 Constellation Blvd, Suite 2700, Los Angeles, CA 90067"
+      },
+      "party2": {
+        "name": "Quantum Insights Corp.",
+        "type": "Delaware corporation",
+        "address": "500 Howard Street, Suite 300, San Francisco, CA 94105"
+      }
+    },
+    "effective_date": "July 20, 2023",
+    "contract_type": "other"
+  }
+}

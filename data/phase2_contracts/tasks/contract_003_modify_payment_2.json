@@ -1,0 +1,29 @@
+{
+  "task_id": "contract_003_modify_payment_2",
+  "contract_id": "contract_003",
+  "task_type": "modify_payment",
+  "title": "Modify Payment Terms",
+  "instruction": "Modify the payment terms to change from monthly invoicing to quarterly invoicing. Ensure all payment deadlines and billing cycles are updated consistently throughout the agreement.",
+  "evaluation_criteria": [
+    "All instances updated",
+    "Maintains clarity",
+    "No contradictions"
+  ],
+  "input_file": "contract_003_services_agreement_filled.txt",
+  "context": {
+    "parties": {
+      "party1": {
+        "name": "Quantum Insights Corp.",
+        "type": "Delaware corporation",
+        "address": "500 Howard Street, Suite 300, San Francisco, CA 94105"
+      },
+      "party2": {
+        "name": "DataFlow Systems LLC",
+        "type": "California limited liability company",
+        "address": "1455 Market Street, Suite 1600, San Francisco, CA 94103"
+      }
+    },
+    "effective_date": "January 30, 2023",
+    "contract_type": "services_agreement"
+  }
+}

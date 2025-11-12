@@ -1,0 +1,4 @@
+{"id": "batch_req_690da8a83128819087dd32c1107b0151", "custom_id": "approp_phase1_qa_34_z-ai/glm-4.6_346", "response": {"status_code": 0, "request_id": "", "body": {}}, "error": null}
+{"id": "batch_req_690da8ae5ba48190bbae338d2d285d41", "custom_id": "approp_phase1_qa_41_openai/gpt-5_411", "response": {"status_code": 0, "request_id": "", "body": {}}, "error": null}
+{"id": "batch_req_690da8ae78f88190a0ec33a065868b71", "custom_id": "approp_phase1_qa_41_google/gemini-2.5-flash_413", "response": {"status_code": 0, "request_id": "", "body": {}}, "error": null}
+{"id": "batch_req_690da8f37b288190a94892152baeecc8", "custom_id": "approp_falsereject_16_deepseek/deepseek-chat-v3-0324_1165", "response": {"status_code": 0, "request_id": "", "body": {}}, "error": null}

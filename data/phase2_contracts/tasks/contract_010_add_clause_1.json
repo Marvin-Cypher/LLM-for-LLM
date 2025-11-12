@@ -1,0 +1,29 @@
+{
+  "task_id": "contract_010_add_clause_1",
+  "contract_id": "contract_010",
+  "task_type": "add_clause",
+  "title": "Add Pricing and Discounts",
+  "instruction": "Add a pricing schedule section that specifies: (a) wholesale pricing at 40% discount from MSRP, (b) volume discounts of 5% for orders over 100 units, (c) annual price adjustment based on CPI with 90 days notice.",
+  "evaluation_criteria": [
+    "Clear pricing structure",
+    "Professional formatting",
+    "Mutual fairness"
+  ],
+  "input_file": "contract_010_reseller_agreement_filled.txt",
+  "context": {
+    "parties": {
+      "party1": {
+        "name": "TechVenture Solutions Inc.",
+        "type": "Delaware corporation",
+        "address": "350 Fifth Avenue, Suite 1800, New York, NY 10118"
+      },
+      "party2": {
+        "name": "CloudScale Technologies Corp.",
+        "type": "Delaware corporation",
+        "address": "100 Pine Street, Suite 1250, Seattle, WA 98101"
+      }
+    },
+    "effective_date": "August 07, 2023",
+    "contract_type": "reseller_agreement"
+  }
+}

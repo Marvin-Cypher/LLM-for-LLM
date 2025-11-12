@@ -1,0 +1,29 @@
+{
+  "task_id": "contract_004_add_clause_1",
+  "contract_id": "contract_004",
+  "task_type": "add_clause",
+  "title": "Add Non-Compete Clause",
+  "instruction": "Draft and add a reasonable non-compete clause that restricts the consultant from working with direct competitors for 6 months post-termination within a 50-mile radius. Ensure it's enforceable under California law.",
+  "evaluation_criteria": [
+    "Legal enforceability",
+    "Geographic/time reasonableness",
+    "Clear language"
+  ],
+  "input_file": "contract_004_consulting_agreement_filled.txt",
+  "context": {
+    "parties": {
+      "party1": {
+        "name": "Strategic Partners LLC",
+        "type": "Delaware limited liability company",
+        "address": "71 Broadway, Suite 1400, New York, NY 10006"
+      },
+      "party2": {
+        "name": "Apex Consulting Group LLC",
+        "type": "Texas limited liability company",
+        "address": "5000 Plaza on the Lake, Suite 265, Austin, TX 78746"
+      }
+    },
+    "effective_date": "July 21, 2023",
+    "contract_type": "consulting_agreement"
+  }
+}

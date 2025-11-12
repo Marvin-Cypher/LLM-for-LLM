@@ -4,6 +4,9 @@ __pycache__/
 *$py.class
 *.so
 .Python
+env/
+venv/
+ENV/
 build/
 develop-eggs/
 dist/
@@ -20,11 +23,6 @@ wheels/
 .installed.cfg
 *.egg
 
-# Virtual environments
-venv/
-ENV/
-env/
-
 # IDE
 .vscode/
 .idea/
@@ -33,29 +31,30 @@ env/
 *~
 .DS_Store
 
-# Environment variables
+# Logs
+*.log
+/tmp/
+logs/
+
+# Environment
 .env
 .env.local
-*.env
-
-# API Keys (safety)
-*api_key*
-*API_KEY*
-credentials.json
-
-# Results and outputs (too large)
-results/*.json
-!results/phase1_final.json
-!results/phase2_final.json
-!results/falsereject_benchmark_final.json
-batch_evaluation_jobs/batch_*.jsonl
-batch_evaluation_jobs/**/batch_*.jsonl
 
 # Temporary files
 *.tmp
-*.log
-/tmp/
-.cache/
+*.bak
+*_backup.*
+
+# Large intermediate files
+results/benchmark_*.json
+results/*_retried*.json
+
+# Archive
+scripts_backup/
+
+# HuggingFace temp
+huggingface_datasets/*.json
+!huggingface_datasets/*.jsonl
 
 # LaTeX
 *.aux
@@ -64,20 +63,15 @@ batch_evaluation_jobs/**/batch_*.jsonl
 *.log
 *.out
 *.toc
-*.fls
-*.fdb_latexmk
 *.synctex.gz
 
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
+# API Keys and Secrets
+*.key
+*.secret
+.env.local
+config/api_keys.json
 
-# Large files
-*.pdf
-!reports/paper/overleaf/*.pdf
-!paper/LLMs_for_LLMs__Evaluating_Large_Language_Models_for_Legal_Practice_Through_Multi_Dimensional_Benchmarking.pdf
-!figures/*.png
+# Hugging Face token
+huggingface_token.txt
+hf_token.txt
 
-# Overleaf packages distributed via GitHub Releases
-reports/paper/overleaf/*.zip
